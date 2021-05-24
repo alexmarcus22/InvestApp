@@ -6,6 +6,8 @@ import {
   Image,
   FlatList,
   SafeAreaView,
+  ScrollView,
+  TouchableHighlight,
 } from "react-native";
 import Card from "../components/card";
 import PlanComponent from "../components/plan";
@@ -17,22 +19,19 @@ const DATA = [
     id: "1",
     title: "Gold",
     subtitle: "30% return",
-    bg1: "#F0C735",
-    bg2: "#D98F39",
+    bg: "stock1.png",
   },
   {
     id: "2",
     title: "Silver",
     subtitle: "60% return",
-    bg1: "#CAC9C9",
-    bg2: "#979797",
+    bg: "stock2.png",
   },
   {
     id: "3",
     title: "Platinum",
     subtitle: "70% return",
-    bg1: "#BA8DF3",
-    bg2: "#615EE2",
+    bg: "stock3.png",
   },
 ];
 
@@ -51,62 +50,84 @@ const NEWS = [
   },
 ];
 
-const Homepage = () => {
+export const HomePage = () => {
   return (
-    <View style={styles.container}>
-      <View style={styles.headerContainer}>
-        <Image
-          style={styles.hamburger}
-          source={require("../../assets/homepage/menu.png")}
-        />
-        <Image
-          style={styles.notification}
-          source={require("../../assets/homepage/notif.png")}
-          resizeMode="contain"
-          alignSelf="center"
-        />
-      </View>
-      <View style={styles.mainContainer}>
-        <Text style={styles.title}>Welcome, Jessie.</Text>
-        <Card title="Your total assetp portofolio" value="N203,935"></Card>
-        <View style={styles.plans}>
-          <View style={styles.headerContainer}>
-            <Text style={styles.plansTitle}>Best plans.</Text>
-            <Text style={styles.plansSeeAll}>See All →</Text>
+    <ScrollView>
+      <SafeAreaView>
+        <View style={styles.homepage}>
+          <View style={styles.container}>
+            <View style={styles.headerContainer}>
+              <TouchableHighlight
+                onPress={() => console.log("e")}
+                underlayColor="transparent"
+              >
+                <Image
+                  style={styles.hamburger}
+                  source={require("../../assets/homepage/menu.png")}
+                />
+              </TouchableHighlight>
+              <Image
+                style={styles.notification}
+                source={require("../../assets/homepage/notif.png")}
+                resizeMode="contain"
+                alignSelf="center"
+              />
+            </View>
+            <View style={styles.mainContainer}>
+              <Text style={styles.title}>Welcome, Jessie.</Text>
+              <Card
+                title="Your total assetp portofolio"
+                value="N203,935"
+              ></Card>
+              <View style={styles.plans}>
+                <View style={styles.headerContainer}>
+                  <Text style={styles.plansTitle}>Best plans.</Text>
+                  <Text style={styles.plansSeeAll}>See All →</Text>
+                </View>
+                <SafeAreaView style={{ flexDirection: "row" }}>
+                  <FlatList
+                    data={DATA}
+                    numColumns={DATA.length}
+                    renderItem={(item) => {
+                      return <PlanComponent {...item} length={DATA.length} />;
+                    }}
+                    style={{
+                      flexDirection: "row",
+                      overflow: "auto",
+                      width: "100%",
+                    }}
+                    keyExtractor={(item) => item.id}
+                  />
+                </SafeAreaView>
+              </View>
+              <View style={styles.investContainer}>
+                <Text style={styles.investTitle}>Investment Guide</Text>
+                <SafeAreaView
+                  style={{
+                    flexDirection: "column",
+                  }}
+                >
+                  <FlatList
+                    data={NEWS}
+                    numColumns={1}
+                    renderItem={(item) => {
+                      return <NewsComponent {...item} length={NEWS.length} />;
+                    }}
+                    keyExtractor={(item) => item.id.toString()}
+                    showsHorizontalScrollIndicator={false}
+                  />
+                </SafeAreaView>
+              </View>
+            </View>
           </View>
-          <SafeAreaView style={{ flexDirection: "row" }}>
-            <FlatList
-              data={DATA}
-              numColumns={DATA.length}
-              renderItem={(item) => {
-                return <PlanComponent {...item} length={DATA.length} />;
-              }}
-              style={{ flexDirection: "row", overflow: "auto", width: "100%" }}
-              keyExtractor={(item) => item.id}
-            />
-          </SafeAreaView>
         </View>
-        <View style={styles.investContainer}>
-          <Text style={styles.investTitle}>Investment Guide</Text>
-          <SafeAreaView
-            style={{
-              flexDirection: "column",
-            }}
-          >
-            <FlatList
-              data={NEWS}
-              numColumns={1}
-              renderItem={(item) => {
-                return <NewsComponent {...item} length={NEWS.length} />;
-              }}
-              keyExtractor={(item) => item.id.toString()}
-            />
-          </SafeAreaView>
-        </View>
-      </View>
-      <Navigation></Navigation>
-    </View>
+      </SafeAreaView>
+    </ScrollView>
   );
+};
+
+const Routing = () => {
+  return <Navigation />;
 };
 
 const styles = StyleSheet.create({
@@ -146,6 +167,7 @@ const styles = StyleSheet.create({
     lineHeight: 44,
     fontWeight: "700",
     marginBottom: 30,
+    fontFamily: "SF Pro Display",
   },
   mainContainer: {
     flex: 8,
@@ -169,4 +191,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Homepage;
+export default Routing;

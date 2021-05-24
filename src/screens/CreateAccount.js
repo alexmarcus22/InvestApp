@@ -9,54 +9,52 @@ const CreateAccount = ({ navigation }) => {
   const onSubmit = (data) => console.log(data);
 
   return (
-    <>
-      <SafeAreaView style={[styles.container]}>
-        <Text onPress={() => navigation.goBack()} style={styles.goBack}>
-          Go back
+    <SafeAreaView style={[styles.container]}>
+      <Text onPress={() => navigation.goBack()} style={styles.goBack}>
+        Go back
+      </Text>
+      <View style={styles.textContainer}>
+        <Text style={styles.title}>Create an account</Text>
+        <Text style={styles.description}>
+          Invest and double your income now
         </Text>
-        <View style={styles.textContainer}>
-          <Text style={styles.title}>Create an account</Text>
-          <Text style={styles.description}>
-            Invest and double your income now
+      </View>
+      <View style={styles.inputsContainer}>
+        <View onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
+          <Input
+            placeholder="Email Address"
+            style={styles.input}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={{ paddingHorizontal: 0 }}
+            type="email"
+            name="email"
+            {...register("email")}
+          />
+          <Input
+            placeholder="Full Name"
+            style={styles.input}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={{ paddingHorizontal: 0 }}
+            type="text"
+            name="fullName"
+          />
+          <Input
+            placeholder="Password"
+            style={styles.input}
+            inputContainerStyle={{ borderBottomWidth: 0 }}
+            containerStyle={{ paddingHorizontal: 0 }}
+            type="password"
+          />
+          <SubmitButtonComponent title="Create Account" submit={onSubmit} />
+          <Text
+            style={styles.bottomText}
+            onPress={() => navigation.navigate("Home Page")}
+          >
+            Already have an account?
           </Text>
         </View>
-        <View style={styles.inputsContainer}>
-          <View onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
-            <Input
-              placeholder="Email Address"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="email"
-              name="email"
-              {...register("email")}
-            />
-            <Input
-              placeholder="Full Name"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="text"
-              name="fullName"
-            />
-            <Input
-              placeholder="Password"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="password"
-            />
-            <SubmitButtonComponent title="Create Account" submit={onSubmit} />
-            <Text
-              style={styles.bottomText}
-              onPress={() => navigation.navigate("Homepage")}
-            >
-              Already have an account?
-            </Text>
-          </View>
-        </View>
-      </SafeAreaView>
-    </>
+      </View>
+    </SafeAreaView>
   );
 };
 

@@ -1,21 +1,32 @@
 import React from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
-import { LinearGradient } from "expo-linear-gradient";
+import {
+  StyleSheet,
+  View,
+  Text,
+  TouchableOpacity,
+  SafeAreaView,
+  ImageBackground,
+} from "react-native";
 
-const Item = ({ item, length }) => (
-  <TouchableOpacity>
-    <LinearGradient
-      colors={[item.bg1, item.bg2]}
-      style={[
-        styles.item,
-        item.id == length ? { marginRight: 0 } : { marginRight: 20 },
-      ]}
-    >
-      <Text style={styles.title}>{item.title}</Text>
-      <Text style={styles.subtitle}>{item.subtitle}</Text>
-    </LinearGradient>
-  </TouchableOpacity>
-);
+var path = "../../assets/homepage/";
+
+const Item = ({ item, length }) => {
+  path += item.bg;
+  return (
+    <TouchableOpacity>
+      <ImageBackground
+        source={require("../../assets/homepage/" + item.bg)}
+        style={[
+          styles.item,
+          item.id == length ? { marginRight: 0 } : { marginRight: 20 },
+        ]}
+      >
+        <Text style={styles.title}>{item.title}</Text>
+        <Text style={styles.subtitle}>{item.subtitle}</Text>
+      </ImageBackground>
+    </TouchableOpacity>
+  );
+};
 
 const PlanComponent = ({ item, length }) => {
   return <Item item={item} length={length} />;
