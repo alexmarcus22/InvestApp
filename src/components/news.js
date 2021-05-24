@@ -2,7 +2,7 @@ import React from "react";
 import { Text, View, StyleSheet } from "react-native";
 
 const Item = ({ item }) => (
-  <View style={styles.item}>
+  <View style={styles.item} onPress={() => navigation.navigate("Sign Up")}>
     <Text style={styles.title}>{item.title}</Text>
     <Text style={styles.description}>{item.description}</Text>
   </View>
@@ -22,12 +22,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 28,
     color: "#474747",
+    letterSpacing: "0.8px",
   },
   description: {
     fontSize: 14,
     lineHeight: 22,
     maxWidth: 260,
     color: "#474747",
+    letterSpacing: "0.8px",
   },
 });
 export default NewsComponent;

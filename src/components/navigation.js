@@ -1,53 +1,45 @@
 import React from "react";
-import {
-  SafeAreaView,
-  View,
-  Text,
-  StyleSheet,
-  Image,
-  ScrollView,
-} from "react-native";
+import { View, Text, StyleSheet, Image } from "react-native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { HomePage } from "../screens/HomePage";
+import AssetsScreen from "../screens/Assets";
+
+const Tab = createBottomTabNavigator();
 
 const Navigation = () => {
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={[styles.cell]}>
-        <Image
-          style={styles.img}
-          source={require("../../assets/homepage/home.png")}
-          resizeMode="contain"
-          alignSelf="center"
-        />
-        <Text style={[styles.link, styles.active]}>Home</Text>
-      </View>
-      <View style={[styles.cell]}>
-        <Image
-          style={styles.img}
-          source={require("../../assets/homepage/search.png")}
-          resizeMode="contain"
-          alignSelf="center"
-        />
-        <Text style={[styles.link]}>Product</Text>
-      </View>
-      <View style={[styles.cell]}>
-        <Image
-          style={styles.img}
-          source={require("../../assets/homepage/transfer.png")}
-          resizeMode="contain"
-          alignSelf="center"
-        />
-        <Text style={[styles.link]}>Transfer</Text>
-      </View>
-      <View style={[styles.cell]}>
-        <Image
-          style={styles.img}
-          source={require("../../assets/homepage/profile.png")}
-          resizeMode="contain"
-          alignSelf="center"
-        />
-        <Text style={[styles.link]}>Profile</Text>
-      </View>
-    </SafeAreaView>
+    <Tab.Navigator
+      tabBarOptions={{
+        activeTintColor: "tomato",
+        inactiveTintColor: "gray",
+      }}
+    >
+      <Tab.Screen
+        name="Home Stack"
+        component={HomePage}
+        options={{
+          tabBarLabel: "Home",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons name="home" color={color} size={size} />
+          ),
+        }}
+      />
+      <Tab.Screen
+        name="Assets"
+        component={AssetsScreen}
+        options={{
+          tabBarLabel: "Assets",
+          tabBarIcon: ({ color, size }) => (
+            <MaterialCommunityIcons
+              name="feature-search"
+              color={color}
+              size={size}
+            />
+          ),
+        }}
+      />
+    </Tab.Navigator>
   );
 };
 
