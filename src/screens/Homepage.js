@@ -76,10 +76,7 @@ export const HomePage = ({ navigation }) => {
         <View style={styles.homepage}>
           <View style={styles.container}>
             <View style={styles.headerContainer}>
-              <TouchableHighlight
-                onPress={() => console.log("e")}
-                underlayColor="transparent"
-              >
+              <TouchableHighlight underlayColor="transparent">
                 <Image
                   style={styles.hamburger}
                   source={require("../../assets/homepage/menu.png")}

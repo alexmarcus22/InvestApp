@@ -49,7 +49,7 @@ const MainStackNavigator = () => {
             headerTitle: getHeaderTitle(route),
           })}
         /> */}
-        <Stack.Screen name="Sign Up" component={Assets} />
+        <Stack.Screen name="Sign Up" component={Profile} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
         <Stack.Screen name="Home Page" component={HomePage} />
       </Stack.Navigator>

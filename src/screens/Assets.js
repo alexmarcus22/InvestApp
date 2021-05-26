@@ -62,7 +62,7 @@ const AssetsScreen = ({ navigation }) => {
               <Text style={styles.headerTitle}>Test</Text>
             </View>
             <TouchableHighlight style={{ flex: 1 }}>
-              <Image
+              <ImageBackground
                 style={styles.close}
                 source={require("../../assets/assets/close.png")}
                 resizeMode="contain"
@@ -72,7 +72,14 @@ const AssetsScreen = ({ navigation }) => {
           </View>
           <View style={styles.headerContent}>
             <Text style={styles.titleContent}>Your total asset portofolio</Text>
-            <Text style={styles.valueContent}>N203,935</Text>
+            <View style={{ flexDirection: "row", alignItems: "center" }}>
+              <Text style={styles.valueContent}>N203,935</Text>
+              <Image
+                source={require("../../assets/assets/vote.png")}
+                style={styles.vote}
+              />
+              <Text style={styles.valuePercent}>+2%</Text>
+            </View>
           </View>
           <View style={styles.currentPlans}>
             <Text style={styles.titlePlans}>Current Plans</Text>
@@ -80,7 +87,10 @@ const AssetsScreen = ({ navigation }) => {
               <ImageBackground
                 source={require("../../assets/assets/gold.png")}
                 style={styles.imagePlans}
-              ></ImageBackground>
+              >
+                <Text style={styles.imagePlansTitle}>Gold</Text>
+                <Text style={styles.imagePlansSubTitle}>30% return</Text>
+              </ImageBackground>
             </TouchableOpacity>
             <Text style={styles.allPlans}>See all plans →</Text>
           </View>
@@ -89,7 +99,6 @@ const AssetsScreen = ({ navigation }) => {
             <FlatList
               data={DATA}
               renderItem={({ item }) => {
-                console.log(item);
                 return (
                   <View>
                     <Text style={styles.historyItemTitle}>{item.title}</Text>
@@ -157,6 +166,17 @@ const styles = StyleSheet.create({
     fontFamily: "SF-Pro-Display-Medium",
     fontweight: "600",
   },
+  vote: {
+    position: "relative",
+    zIndex: 1,
+    width: 16,
+    height: 16,
+    marginLeft: 40,
+  },
+  valuePercent: {
+    fontSize: 11,
+    color: "#00B907",
+  },
   currentPlans: {
     marginTop: 13,
     marginBottom: 30,
@@ -169,9 +189,16 @@ const styles = StyleSheet.create({
     fontFamily: "SF-Pro-Display-Medium",
   },
   imagePlans: {
-    height: 184,
-    maxWidth: "100%",
-    marginBottom: 25,
+    borderRadius: 20,
+    paddingBottom: 90,
+    marginBottom: 10,
+    paddingTop: 43,
+    paddingRight: 28,
+    paddingLeft: 28,
+  },
+  imagePlansTitle: {
+    fontSize: 18,
+    lineHeight: 24,
   },
   allPlans: {
     letterSpacing: "0.8px",
