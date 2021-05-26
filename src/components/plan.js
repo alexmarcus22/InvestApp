@@ -35,7 +35,7 @@ const PlanComponent = ({ item, length }) => {
 const styles = StyleSheet.create({
   item: {
     borderRadius: 20,
-    paddingBottom: 100,
+    paddingBottom: 65,
     paddingTop: 20,
     paddingRight: 20,
     paddingLeft: 20,
