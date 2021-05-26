@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   View,
   Text,
@@ -12,7 +12,8 @@ import {
 import Card from "../components/card";
 import PlanComponent from "../components/plan";
 import NewsComponent from "../components/news";
-import Navigation from "../components/navigation";
+import * as Font from "expo-font";
+import AppLoading from "expo-app-loading";
 
 const DATA = [
   {
@@ -50,7 +51,25 @@ const NEWS = [
   },
 ];
 
-export const HomePage = () => {
+const fetchFonts = () => {
+  return Font.loadAsync({
+    "SF-Pro-Display-Black": require("../../assets/fonts/SF-Pro-Display-Black.otf"),
+  });
+};
+
+export const HomePage = ({ navigation }) => {
+  const [dataLoaded, setDataLoaded] = useState(false);
+
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
+
   return (
     <ScrollView>
       <SafeAreaView>
@@ -76,8 +95,9 @@ export const HomePage = () => {
             <View style={styles.mainContainer}>
               <Text style={styles.title}>Welcome, Jessie.</Text>
               <Card
-                title="Your total assetp portofolio"
+                title="Your total assets portofolio"
                 value="N203,935"
+                navigateTo="Assets Screen"
               ></Card>
               <View style={styles.plans}>
                 <View style={styles.headerContainer}>
@@ -126,10 +146,6 @@ export const HomePage = () => {
   );
 };
 
-const Routing = () => {
-  return <Navigation />;
-};
-
 const styles = StyleSheet.create({
   container: {
     flexDirection: "column",
@@ -148,7 +164,8 @@ const styles = StyleSheet.create({
   investTitle: {
     fontSize: 22,
     lineHeight: 28,
-    fontWeight: "700",
+    fontWeight: "400",
+    fontFamily: "SF-Pro-Display-Black",
   },
   hamburger: {
     position: "relative",
@@ -165,9 +182,9 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     lineHeight: 44,
-    fontWeight: "700",
+    fontWeight: 400,
     marginBottom: 30,
-    fontFamily: "SF Pro Display",
+    fontFamily: "SF-Pro-Display-Black",
   },
   mainContainer: {
     flex: 8,
@@ -181,6 +198,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 28,
     fontWeight: "700",
+    fontFamily: "SF-Pro-Display-Black",
   },
   plansSeeAll: {
     fontSize: 18,
@@ -191,4 +209,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default Routing;
+export default HomePage;

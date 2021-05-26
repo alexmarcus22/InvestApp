@@ -1,8 +1,8 @@
 import React from "react";
-import { StyleSheet, Text, View, Button, Pressable } from "react-native";
+import { StyleSheet, Text, View, Button, Pressable, TouchableHighlight } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 
-const Card = ({ title, value }) => {
+const Card = ({ title, value, navigateTo }) => {
   return (
     <View>
       <LinearGradient
@@ -13,7 +13,9 @@ const Card = ({ title, value }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.number}>{value}</Text>
         <Pressable style={styles.button} title="Invest">
-          <Text>Invest</Text>
+          <TouchableHighlight onPress={() => navigation.navigate(navigateTo)}>
+            <Text>Invest</Text>
+          </TouchableHighlight>
         </Pressable>
       </LinearGradient>
     </View>
