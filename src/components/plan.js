@@ -8,10 +8,7 @@ import {
   ImageBackground,
 } from "react-native";
 
-var path = "../../assets/homepage/";
-
 const Item = ({ item, length }) => {
-  path += item.bg;
   return (
     <TouchableOpacity>
       <ImageBackground
