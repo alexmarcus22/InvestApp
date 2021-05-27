@@ -8,6 +8,8 @@ import CreateAccount from "../screens/CreateAccount";
 import HomePage from "../screens/HomePage";
 import Profile from "../screens/Profile";
 import Assets from "../screens/Assets";
+import Contact from "../screens/Contact";
+import Notification from "../screens/Notification";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -49,7 +51,7 @@ const MainStackNavigator = () => {
             headerTitle: getHeaderTitle(route),
           })}
         /> */}
-        <Stack.Screen name="Sign Up" component={Profile} />
+        <Stack.Screen name="Sign Up" component={Notification} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
         <Stack.Screen name="Home Page" component={HomePage} />
       </Stack.Navigator>
