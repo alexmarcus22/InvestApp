@@ -5,10 +5,10 @@ const FontsLoading = () => {
   const [dataLoaded, setDataLoaded] = useState(false);
   const fetchFonts = () => {
     return Font.loadAsync({
-      "SF-Light": require("../../assets/fonts/SF-Pro-Display-Light.otf"),
-      "SF-Regular": require("../../assets/fonts/SF-Pro-Display-Regular.otf"),
-      "SF-Black": require("../../assets/fonts/SF-Pro-Display-Black.otf"),
-      "SF-Medium": require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
+      SFLight: require("../../assets/fonts/SF-Pro-Display-Light.otf"),
+      SFRegular: require("../../assets/fonts/SF-Pro-Display-Regular.otf"),
+      SFBlack: require("../../assets/fonts/SF-Pro-Display-Black.otf"),
+      SFMedium: require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
     });
   };
 

@@ -153,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     flexDirection: "row",
-    marginBottom: 2,
+    marginBottom: 10,
   },
   investContainer: {
     flexDirection: "column",
