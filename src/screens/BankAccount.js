@@ -7,10 +7,11 @@ import {
   TouchableOpacity,
   Image,
   FlatList,
+  ImageBackground,
 } from "react-native";
 import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
-import Notification from "../components/notification";
+import BankCard from "../components/bankCard";
 
 const fetchFonts = () => {
   return Font.loadAsync({
@@ -23,23 +24,17 @@ const DATA = [
     id: "1",
     title: "Apple stocks just increased. Check it now",
     dataTime: "15 min ago",
-    bg: require("../../assets/notifications/1.png"),
+    bg: "1.png",
   },
   {
     id: "2",
     title: "Apple stocks just increased. Check it now",
     dataTime: "15 min ago",
-    bg: require("../../assets/notifications/2.png"),
-  },
-  {
-    id: "3",
-    title: "Apple stocks just increased. Check it now",
-    dataTime: "15 min ago",
-    bg: require("../../assets/notifications/3.png"),
+    bg: "2.png",
   },
 ];
 
-const ContactScreen = ({ navigation }) => {
+const BankAccountScreen = ({ navigation }) => {
   const [dataLoaded, setDataLoaded] = useState(false);
 
   if (!dataLoaded) {
@@ -55,25 +50,24 @@ const ContactScreen = ({ navigation }) => {
     <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
       <View style={styles.container}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ paddingBottom: 24 }}>
-            <Image
-              source={require("../../assets/profile/back.png")}
-              style={styles.backImage}
+          <TouchableOpacity style={{ flex: 1 }}>
+            <ImageBackground
+              style={styles.close}
+              source={require("../../assets/bank/back.png")}
+              resizeMode="contain"
+              alignSelf="center"
             />
           </TouchableOpacity>
-          <Text style={styles.headerText}>Notification</Text>
+          <View style={{ flex: 11, textAlign: "center", paddingRight: 20 }}>
+            <Text style={styles.headerTitle}>Contact Info</Text>
+          </View>
         </View>
-        <View>
-          <FlatList
-            data={DATA}
-            numColumns={1}
-            renderItem={(item) => {
-              return <Notification {...item} />;
-            }}
-            keyExtractor={(item) => item.id.toString()}
-            showsHorizontalScrollIndicator={false}
-          />
-        </View>
+        <FlatList
+          data={DATA}
+          renderItem={(item) => {
+            return <BankCard />;
+          }}
+        />
       </View>
     </SafeAreaView>
   );
@@ -87,17 +81,26 @@ const styles = StyleSheet.create({
     backgroundColor: "#F6F6F9",
   },
   headerContainer: {
-    paddingBottom: 29,
+    flexDirection: "row",
+    justifyContent: "center",
+    marginBottom: 50,
+    alignItems: "center",
   },
   backImage: {
     width: 6,
     height: 12,
   },
-  headerText: {
+  headerTitle: {
     fontFamily: "SF-Pro-Display-Medium",
-    fontSize: 34,
-    lineHeight: 44,
+    fontWeight: "400",
+    fontSize: 22,
+  },
+  close: {
+    position: "relative",
+    zIndex: 10,
+    width: 6,
+    height: 12,
   },
 });
 
-export default ContactScreen;
+export default BankAccountScreen;
