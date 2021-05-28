@@ -20,19 +20,19 @@ const DATA = [
     id: "1",
     title: "Gold",
     subtitle: "30% return",
-    bg: "stock1.png",
+    bg: require("../../assets/homepage/stock1.png"),
   },
   {
     id: "2",
     title: "Silver",
     subtitle: "60% return",
-    bg: "stock2.png",
+    bg: require("../../assets/homepage/stock2.png"),
   },
   {
     id: "3",
     title: "Platinum",
     subtitle: "70% return",
-    bg: "stock3.png",
+    bg: require("../../assets/homepage/stock3.png"),
   },
 ];
 
@@ -76,10 +76,7 @@ export const HomePage = ({ navigation }) => {
         <View style={styles.homepage}>
           <View style={styles.container}>
             <View style={styles.headerContainer}>
-              <TouchableHighlight
-                onPress={() => console.log("e")}
-                underlayColor="transparent"
-              >
+              <TouchableHighlight underlayColor="transparent">
                 <Image
                   style={styles.hamburger}
                   source={require("../../assets/homepage/menu.png")}
@@ -156,7 +153,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     flexDirection: "row",
-    marginBottom: 2,
+    marginBottom: 10,
   },
   investContainer: {
     flexDirection: "column",
@@ -182,7 +179,7 @@ const styles = StyleSheet.create({
   title: {
     fontSize: 34,
     lineHeight: 44,
-    fontWeight: 400,
+    fontWeight: "400",
     marginBottom: 30,
     fontFamily: "SF-Pro-Display-Black",
   },

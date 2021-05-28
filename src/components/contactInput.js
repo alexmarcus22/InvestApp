@@ -67,7 +67,7 @@ const Input = styled.input`
     font-weight: 700;
     font-size: 17px;
   }
-  // &:focus + ${Label} {
+  // &:focus + label {
   //   color: #3949ab;
   //   opacity: 1;
   //   transform: scale(0.8) translate3d(0, 5px, 0);

@@ -1,8 +1,21 @@
-import React from "react";
+import AppLoading from "expo-app-loading";
+import React, { useEffect } from "react";
 import { StyleSheet, SafeAreaView, Image, Text, View } from "react-native";
 import ButtonComponent from "../components/Button";
+import FontsLoading from "../components/fonts";
 
 const SignUpScreen = ({ navigation }) => {
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
+
   return (
     <SafeAreaView style={styles.container}>
       <View
@@ -21,7 +34,8 @@ const SignUpScreen = ({ navigation }) => {
         />
         <Text style={styles.title}>Stay on top of your finance with us.</Text>
         <Text style={styles.description}>
-          Stay on top of your finance with us.
+          We are your new financial Advisors to recommed the best investments
+          for you.
         </Text>
       </View>
       <ButtonComponent
@@ -50,14 +64,23 @@ const styles = StyleSheet.create({
     alignSelf: "center",
   },
   title: {
-    fontSize: 26,
+    fontSize: 34,
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 11,
+    fontFamily: "SFMedium",
+    lineHeight: 44,
+    paddingHorizontal: 15,
   },
   description: {
     marginBottom: 11,
     textAlign: "center",
+    fontSize: 17,
+    lineHeight: 22,
+    textAlign: "center",
+    fontFamily: "SFLight",
+    fontWeight: "400",
+    marginBottom: 100,
   },
   noBackgroundText: {
     textAlign: "center",

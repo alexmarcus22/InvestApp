@@ -5,10 +5,7 @@ const Notification = ({ item }) => {
   return (
     <View style={styles.item}>
       <TouchableOpacity style={{ paddingRight: 13 }}>
-        <Image
-          source={require("../../assets/notifications/" + item.bg)}
-          style={[styles.image]}
-        />
+        <Image source={item.bg} style={[styles.image]} />
       </TouchableOpacity>
       <Text style={styles.title}>{item.title}</Text>
       <Text style={styles.dataTime}>{item.dataTime}</Text>
@@ -38,7 +35,7 @@ const styles = StyleSheet.create({
     lineHeight: 22,
     maxWidth: 260,
     color: "#474747",
-    letterSpacing: "0.8px",
+    letterSpacing: 0.8,
   },
   image: {
     width: 70,

@@ -148,7 +148,7 @@ const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: "SF-Pro-Display-Medium",
-    fontweight: "400",
+    fontWeight: "400",
     fontSize: 22,
   },
   headerContent: {
@@ -157,14 +157,14 @@ const styles = StyleSheet.create({
   titleContent: {
     fontSize: 16,
     fontFamily: "SF-Pro-Display-Medium",
-    fontweight: "300",
+    fontWeight: "300",
     color: "#B2B2B2",
     marginBottom: 8,
   },
   valueContent: {
     fontSize: 32,
     fontFamily: "SF-Pro-Display-Medium",
-    fontweight: "600",
+    fontWeight: "600",
   },
   vote: {
     position: "relative",
@@ -201,7 +201,7 @@ const styles = StyleSheet.create({
     lineHeight: 24,
   },
   allPlans: {
-    letterSpacing: "0.8px",
+    letterSpacing: 0.8,
     lineHeight: 28,
     fontWeight: "500",
     fontSize: 18,
@@ -211,13 +211,13 @@ const styles = StyleSheet.create({
   historyTitle: {
     fontSize: 22,
     lineHeight: 28,
-    letterSpacing: "0.8px",
+    letterSpacing: 0.8,
     marginBottom: 20,
   },
   historyItemTitle: {
     fontFamily: "SF-Pro-Display-Medium",
     fontSize: 18,
-    fontweight: "bold",
+    fontWeight: "bold",
     lineHeight: 28,
   },
 });

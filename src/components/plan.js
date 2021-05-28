@@ -1,18 +1,18 @@
 import React from "react";
 import {
   StyleSheet,
-  View,
   Text,
   TouchableOpacity,
-  SafeAreaView,
   ImageBackground,
+  Image,
 } from "react-native";
 
 const Item = ({ item, length }) => {
+  console.log(item.bg);
   return (
     <TouchableOpacity>
       <ImageBackground
-        source={require("../../assets/homepage/" + item.bg)}
+        source={item.bg}
         style={[
           styles.item,
           item.id == length ? { marginRight: 0 } : { marginRight: 20 },
