@@ -22,14 +22,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 28,
     color: "#474747",
-    letterSpacing: "0.8px",
+    letterSpacing: 0.8,
   },
   description: {
     fontSize: 14,
     lineHeight: 22,
     maxWidth: 260,
     color: "#474747",
-    letterSpacing: "0.8px",
+    letterSpacing: 0.8,
   },
 });
 export default NewsComponent;

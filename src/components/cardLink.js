@@ -52,11 +52,13 @@ const styles = StyleSheet.create({
   card: {
     paddingHorizontal: 20,
     paddingVertical: 22,
-    boxShadow: "0px 5px 10px rgba(0, 0, 0, 0.04)",
     backgroundColor: "white",
     borderRadius: 4,
     flexDirection: "row",
     alignItems: "center",
+    shadowOffset: { width: 5, height: 10 },
+    shadowColor: "black",
+    shadowOpacity: 0.04,
   },
   title: {
     fontSize: 17,
