@@ -1,20 +1,6 @@
 import React, { useState } from "react";
-import {
-  Text,
-  View,
-  StyleSheet,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
-import styled from "styled-components";
-import * as Font from "expo-font";
+import { TouchableOpacity } from "react-native";
 import AppLoading from "expo-app-loading";
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Light": require("../../assets/fonts/SF-Pro-Display-Light.otf"),
-  });
-};
 
 const Container = styled.div`
   display: flex;
@@ -37,7 +23,7 @@ const Label = styled.label`
   transform-origin: left top;
   transform: scale(1) translate3d(0, 22px, 0);
   transition: 200ms ease all;
-  font-family: "SF-Pro-Display-Light";
+  font-family: "SFLight";
   font-weight: 500;
 `;
 
@@ -54,7 +40,7 @@ const Input = styled.input`
   order: 2;
   background-color: transparent;
   padding: 7px 16px 12px 0;
-  font-family: "SF-Pro-Display-Light";
+  font-family: "SFLight";
 
   &:focus {
     outline: 0;
@@ -63,7 +49,7 @@ const Input = styled.input`
   &::placeholder {
     color: black;
     opacity: 1;
-    font-family: "SF-Pro-Display-Light";
+    font-family: "SFLight";
     font-weight: 700;
     font-size: 17px;
   }
@@ -78,7 +64,7 @@ const ChangeText = styled.div`
   position: absolute;
   top: 40px;
   right: 15px;
-  font-family: "SF-Pro-Display-Light";
+  font-family: "SFLight";
   font-weight: 700;
   color: #31a05f;
   font-style: normal;
@@ -89,9 +75,7 @@ const ChangeText = styled.div`
 `;
 
 const ContactInput = (props) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-  const { id, label, placeHolder, type } = props.item;
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
