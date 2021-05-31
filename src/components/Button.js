@@ -18,6 +18,7 @@ export const button = StyleSheet.create({
     textAlign: "center",
     backgroundColor: "#31A062",
     borderRadius: 20,
+    width: "100%",
     alignSelf: "stretch",
     color: "white",
     paddingTop: 14,

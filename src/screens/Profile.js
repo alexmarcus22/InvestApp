@@ -10,37 +10,29 @@ import {
   FlatList,
   TouchableOpacity,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import CardLink from "../components/cardLink";
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Medium": require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
-  });
-};
 
 const DATA = [
   {
     title: "Contact Info",
   },
   {
-    title: "Contact Info",
+    title: "Source of Funding Info",
   },
   {
-    title: "Contact Info",
+    title: "Bank Account Info",
   },
   {
-    title: "Contact Info",
+    title: "Document Info",
   },
   {
-    title: "Contact Info",
+    title: "Settings",
   },
 ];
 
 const ProfileScreen = ({ navigation }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -88,7 +80,7 @@ const ProfileScreen = ({ navigation }) => {
 
 const styles = StyleSheet.create({
   container: {
-    paddingVertical: 70,
+    paddingVertical: 60,
     paddingHorizontal: 30,
     backgroundColor: "#F6F6F9",
   },
@@ -100,7 +92,7 @@ const styles = StyleSheet.create({
     height: 12,
   },
   headerText: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontSize: 34,
     lineHeight: 44,
   },
@@ -116,7 +108,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   name: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontSize: 22,
   },
   job: {
