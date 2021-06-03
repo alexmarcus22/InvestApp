@@ -26,6 +26,7 @@ const CreateAccount = () => {
       />
     );
   }
+  
 
   return (
     <ScrollView>
