@@ -6,7 +6,6 @@ const Card = ({ title, value, navigateTo }) => {
   return (
     <View>
       <LinearGradient
-        // Background Linear Gradient
         colors={["#31A078", "#31A05F"]}
         style={styles.container}
       >

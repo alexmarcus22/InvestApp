@@ -1,4 +1,3 @@
-import React from "react";
 import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 
 const Notification = ({ item }) => {
@@ -29,7 +28,6 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 8,
     paddingRight: 30,
-    maxWidth: "65%",
   },
   description: {
     fontSize: 14,
