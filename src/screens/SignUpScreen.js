@@ -6,7 +6,7 @@ import FontsLoading from "../components/fonts";
 
 const SignUpScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-    if (!dataLoaded) {
+  if (!dataLoaded) {
     return (
       <AppLoading
         startAsync={fetchFonts}
@@ -18,14 +18,7 @@ const SignUpScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <View
-        style={{
-          alignItems: "center",
-          justifyContent: "center",
-          display: "flex",
-          flexDirection: "column",
-        }}
-      >
+      <View>
         <Image
           style={styles.logo}
           source={require("../../assets/sign-up-screen/logo.png")}
@@ -38,10 +31,7 @@ const SignUpScreen = () => {
           for you.
         </Text>
       </View>
-      <ButtonComponent
-        title="Create Account"
-        pathToNavigate="Create Account"
-      />
+      <ButtonComponent title="Create Account" pathToNavigate="Create Account" />
       <Text style={styles.noBackgroundText}>Login</Text>
     </SafeAreaView>
   );

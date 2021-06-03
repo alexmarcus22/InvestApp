@@ -53,10 +53,10 @@ const AssetsScreen = () => {
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
-            <View style={{ flex: 11, alignItems: "center" }}>
+            <View style={styles.row1}>
               <Text style={styles.headerTitle}>My Asset</Text>
             </View>
-            <TouchableHighlight style={{ flex: 1 }}>
+            <TouchableHighlight style={styles.row2}>
               <ImageBackground
                 style={styles.close}
                 source={require("../../assets/assets/close.png")}
@@ -67,7 +67,7 @@ const AssetsScreen = () => {
           </View>
           <View style={styles.headerContent}>
             <Text style={styles.titleContent}>Your total asset portofolio</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={styles.valueContainer}>
               <Text style={styles.valueContent}>N203,935</Text>
               <Image
                 source={require("../../assets/assets/vote.png")}
@@ -97,18 +97,11 @@ const AssetsScreen = () => {
                 return (
                   <View>
                     <Text style={styles.historyItemTitle}>{item.title}</Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        marginBottom: 10,
-                        paddingBottom: 15,
-                        borderBottomWidth: 1,
-                        borderBottomColor: "#E7E7E7",
-                      }}
-                    >
-                      <Text style={{ color: "#B2B2B2" }}>{item.subtitle}</Text>
-                      <Text style={{ color: "#B2B2B2" }}>{item.date}</Text>
+                    <View style={styles.historyItem}>
+                      <Text style={styles.historyItemSubTitle}>
+                        {item.subtitle}
+                      </Text>
+                      <Text style={styles.historyItemDate}>{item.date}</Text>
                     </View>
                   </View>
                 );
@@ -135,6 +128,13 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 20,
   },
+  row1: {
+    flex: 11,
+    alignItems: "center",
+  },
+  row2: {
+    flex: 1,
+  },
   close: {
     position: "relative",
     zIndex: 1,
@@ -156,6 +156,7 @@ const styles = StyleSheet.create({
     color: "#B2B2B2",
     marginBottom: 8,
   },
+  valueContainer: { flexDirection: "row", alignItems: "center" },
   valueContent: {
     fontSize: 32,
     fontFamily: "SFMedium",
@@ -214,6 +215,14 @@ const styles = StyleSheet.create({
     color: "#FE555D",
     textAlign: "center",
   },
+  historyItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 10,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E7E7E7",
+  },
   historyTitle: {
     fontSize: 22,
     lineHeight: 28,
@@ -226,6 +235,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     lineHeight: 28,
   },
+  historyItemDate: { color: "#B2B2B2" },
+  historyItemSubTitle: { color: "#B2B2B2" },
 });
 
 export default AssetsScreen;
