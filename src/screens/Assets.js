@@ -11,8 +11,8 @@ import {
   ImageBackground,
   FlatList,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
+import FontsLoading from "../components/fonts";
 
 const DATA = [
   {
@@ -35,15 +35,8 @@ const DATA = [
   },
 ];
 
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Medium": require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
-  });
-};
-
 const AssetsScreen = ({ navigation }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -58,8 +51,8 @@ const AssetsScreen = ({ navigation }) => {
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
-            <View style={{ flex: 11, textAlign: "center", paddingLeft: 20 }}>
-              <Text style={styles.headerTitle}>Test</Text>
+            <View style={{ flex: 11, alignItems: "center" }}>
+              <Text style={styles.headerTitle}>My Asset</Text>
             </View>
             <TouchableHighlight style={{ flex: 1 }}>
               <ImageBackground
@@ -83,7 +76,7 @@ const AssetsScreen = ({ navigation }) => {
           </View>
           <View style={styles.currentPlans}>
             <Text style={styles.titlePlans}>Current Plans</Text>
-            <TouchableOpacity>
+            <TouchableOpacity style={styles.imageContainer}>
               <ImageBackground
                 source={require("../../assets/assets/gold.png")}
                 style={styles.imagePlans}
@@ -147,7 +140,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   headerTitle: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontWeight: "400",
     fontSize: 22,
   },
@@ -156,14 +149,14 @@ const styles = StyleSheet.create({
   },
   titleContent: {
     fontSize: 16,
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontWeight: "300",
     color: "#B2B2B2",
     marginBottom: 8,
   },
   valueContent: {
     fontSize: 32,
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontWeight: "600",
   },
   vote: {
@@ -186,11 +179,14 @@ const styles = StyleSheet.create({
     lineHeight: 28,
     marginBottom: 20,
     fontWeight: "bold",
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
+  },
+  imageContainer: {
+    width: "100%",
   },
   imagePlans: {
     borderRadius: 20,
-    paddingBottom: 90,
+    paddingBottom: 115,
     marginBottom: 10,
     paddingTop: 43,
     paddingRight: 28,
@@ -199,11 +195,19 @@ const styles = StyleSheet.create({
   imagePlansTitle: {
     fontSize: 18,
     lineHeight: 24,
+    letterSpacing: 0.8,
+    fontFamily: "SFMedium",
+    fontWeight: "700",
+  },
+  imagePlansSubTitle: {
+    fontSize: 13,
+    lineHeight: 24,
+    letterSpacing: 0.8,
   },
   allPlans: {
     letterSpacing: 0.8,
     lineHeight: 28,
-    fontWeight: "500",
+    fontWeight: "600",
     fontSize: 18,
     color: "#FE555D",
     textAlign: "center",
@@ -215,7 +219,7 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   historyItemTitle: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontSize: 18,
     fontWeight: "bold",
     lineHeight: 28,

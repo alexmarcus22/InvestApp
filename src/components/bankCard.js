@@ -9,23 +9,19 @@ import {
   TouchableOpacity,
 } from "react-native";
 
-const BankCard = () => {
+const BankCard = ({ item }) => {
   return (
     <SafeAreaView style={styles.bankContainer}>
       <TouchableHighlight>
         <View style={styles.bankCard}>
-          <Image
-            source={require("../../assets/bank/1.png")}
-            style={styles.bankImage}
-          />
+          <Image source={item.bg} style={styles.bankImage} />
           <View style={styles.bankDescription}>
-            <Text style={styles.bankTitle}>Bank Of America</Text>
+            <Text style={styles.bankTitle} numberOfLines={1}>
+              {item.title}
+            </Text>
             <Text style={styles.name}>Jonas Macroni</Text>
           </View>
-          <TouchableOpacity
-            style={styles.dotsContent}
-            onPress={() => console.log("e")}
-          >
+          <TouchableOpacity style={styles.dotsContent}>
             <Image
               source={require("../../assets/bank/dots.png")}
               style={styles.dots}
@@ -50,7 +46,7 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     alignItems: "center",
     borderRadius: 20,
-    shadowOffset: { width: 5, height: 10 },
+    shadowOffset: { width: 0, height: 7 },
     shadowColor: "black",
     shadowOpacity: 0.04,
   },
@@ -67,6 +63,7 @@ const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 16,
     fontWeight: "600",
+    maxWidth: "99%",
   },
   dotsContent: {
     alignSelf: "flex-start",

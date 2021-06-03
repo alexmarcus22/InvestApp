@@ -9,33 +9,35 @@ import {
   FlatList,
   ImageBackground,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import BankCard from "../components/bankCard";
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Medium": require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
-  });
-};
+import FontsLoading from "../components/fonts";
+import ButtonComponent from "../components/Button";
 
 const DATA = [
   {
     id: "1",
-    title: "Apple stocks just increased. Check it now",
-    dataTime: "15 min ago",
-    bg: "1.png",
+    title: "Bank of Amrica - 0182128xxx",
+    bg: require("../../assets/bank/1.png"),
   },
   {
     id: "2",
-    title: "Apple stocks just increased. Check it now",
-    dataTime: "15 min ago",
-    bg: "2.png",
+    title: "Zenith Bank - 0182128xxx",
+    bg: require("../../assets/bank/2.png"),
   },
 ];
 
 const BankAccountScreen = ({ navigation }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
 
   if (!dataLoaded) {
     return (
@@ -58,16 +60,23 @@ const BankAccountScreen = ({ navigation }) => {
               alignSelf="center"
             />
           </TouchableOpacity>
-          <View style={{ flex: 11, textAlign: "center", paddingRight: 20 }}>
-            <Text style={styles.headerTitle}>Contact Info</Text>
+          <View style={{ flex: 11, alignItems: "center", paddingRight: 30 }}>
+            <Text style={styles.headerTitle}>Bank of account info</Text>
           </View>
         </View>
         <FlatList
           data={DATA}
           renderItem={(item) => {
-            return <BankCard />;
+            return <BankCard {...item} />;
           }}
         />
+        <View>
+          <ButtonComponent
+            title="Create Account"
+            navigation={navigation}
+            pathToNavigate="Create Account"
+          />
+        </View>
       </View>
     </SafeAreaView>
   );
@@ -91,7 +100,7 @@ const styles = StyleSheet.create({
     height: 12,
   },
   headerTitle: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontWeight: "400",
     fontSize: 22,
   },

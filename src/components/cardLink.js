@@ -7,18 +7,11 @@ import {
   Image,
   TouchableHighlight,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-    SFCompact: require("../../assets/fonts/SF-Pro-Display-Regular.otf"),
-  });
-};
+import FontsLoading from "./fonts";
 
 const CardLink = ({ item }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -66,7 +59,7 @@ const styles = StyleSheet.create({
     lineHeight: 16,
     color: "#333333",
     marginLeft: 36,
-    fontFamily: "SFCompact",
+    fontFamily: "SFMedium",
     fontWeight: "bold",
   },
   imageCard: {

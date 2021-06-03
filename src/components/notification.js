@@ -29,6 +29,7 @@ const styles = StyleSheet.create({
     paddingBottom: 20,
     paddingTop: 8,
     paddingRight: 30,
+    maxWidth: "65%",
   },
   description: {
     fontSize: 14,

@@ -8,15 +8,9 @@ import {
   Image,
   FlatList,
 } from "react-native";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
 import Notification from "../components/notification";
-
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Medium": require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
-  });
-};
+import FontsLoading from "../components/fonts";
 
 const DATA = [
   {
@@ -40,8 +34,7 @@ const DATA = [
 ];
 
 const ContactScreen = ({ navigation }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -94,7 +87,7 @@ const styles = StyleSheet.create({
     height: 12,
   },
   headerText: {
-    fontFamily: "SF-Pro-Display-Medium",
+    fontFamily: "SFMedium",
     fontSize: 34,
     lineHeight: 44,
   },

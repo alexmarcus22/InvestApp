@@ -12,8 +12,8 @@ import {
 import Card from "../components/card";
 import PlanComponent from "../components/plan";
 import NewsComponent from "../components/news";
-import * as Font from "expo-font";
 import AppLoading from "expo-app-loading";
+import FontsLoading from "../components/fonts";
 
 const DATA = [
   {
@@ -51,15 +51,8 @@ const NEWS = [
   },
 ];
 
-const fetchFonts = () => {
-  return Font.loadAsync({
-    "SF-Pro-Display-Black": require("../../assets/fonts/SF-Pro-Display-Black.otf"),
-  });
-};
-
 export const HomePage = ({ navigation }) => {
-  const [dataLoaded, setDataLoaded] = useState(false);
-
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -153,7 +146,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: "space-between",
     flexDirection: "row",
-    marginBottom: 2,
+    marginBottom: 10,
   },
   investContainer: {
     flexDirection: "column",
@@ -162,7 +155,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 28,
     fontWeight: "400",
-    fontFamily: "SF-Pro-Display-Black",
+    fontFamily: "SFBlack",
   },
   hamburger: {
     position: "relative",
@@ -181,7 +174,7 @@ const styles = StyleSheet.create({
     lineHeight: 44,
     fontWeight: "400",
     marginBottom: 30,
-    fontFamily: "SF-Pro-Display-Black",
+    fontFamily: "SFBlack",
   },
   mainContainer: {
     flex: 8,
@@ -195,7 +188,7 @@ const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 28,
     fontWeight: "700",
-    fontFamily: "SF-Pro-Display-Black",
+    fontFamily: "SFBlack",
   },
   plansSeeAll: {
     fontSize: 18,

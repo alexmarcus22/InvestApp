@@ -1,12 +1,28 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { SafeAreaView, StyleSheet, Text, View, Image, ScrollView } from "react-native";
-import { Input } from "react-native-elements";
-import SubmitButtonComponent from "../components/submitButton";
+import {
+  SafeAreaView,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  ScrollView,
+} from "react-native";
+import FontsLoading from "../components/fonts";
+import AppLoading from "expo-app-loading";
+import SignupForm from "../components/SignUp/sign-up-form.component";
 
 const CreateAccount = ({ navigation }) => {
-  const { register, handleSubmit, setValue } = useForm();
-  const onSubmit = (data) => console.log(data);
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
 
   return (
     <ScrollView>
@@ -17,39 +33,15 @@ const CreateAccount = ({ navigation }) => {
             style={styles.backImage}
           />
         </Text>
-        <View style={styles.textContainer}>
+        <View style={styles.headerContainer}>
           <Text style={styles.title}>Create an account</Text>
           <Text style={styles.description}>
             Invest and double your income now
           </Text>
         </View>
         <View style={styles.inputsContainer}>
-          <View onSubmit={handleSubmit(onSubmit)} style={{ width: "100%" }}>
-            <Input
-              placeholder="Email Address"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="email"
-              name="email"
-              {...register("email")}
-            />
-            <Input
-              placeholder="Full Name"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="text"
-              name="fullName"
-            />
-            <Input
-              placeholder="Password"
-              style={styles.input}
-              inputContainerStyle={{ borderBottomWidth: 0 }}
-              containerStyle={{ paddingHorizontal: 0 }}
-              type="password"
-            />
-            <SubmitButtonComponent title="Create Account" submit={onSubmit} />
+          <View style={{ width: "100%" }}>
+            <SignupForm />
             <Text
               style={styles.bottomText}
               onPress={() => navigation.navigate("Home Page")}
@@ -66,11 +58,13 @@ const CreateAccount = ({ navigation }) => {
 const styles = StyleSheet.create({
   container: {
     paddingTop: 70,
-    paddingHorizontal: 30,
+    paddingRight: 35,
+    paddingLeft: 35,
     flexDirection: "column",
   },
-  textContainer: {
+  headerContainer: {
     flex: 1,
+    marginBottom: 86,
   },
   backImage: {
     width: 6,
@@ -79,8 +73,7 @@ const styles = StyleSheet.create({
   },
   inputsContainer: {
     flex: 3,
-    paddingLeft: 34,
-    paddingRight: 34,
+    width: "100%",
   },
   input: {
     borderWidth: 1,
@@ -91,26 +84,32 @@ const styles = StyleSheet.create({
     paddingLeft: 25,
     fontSize: 17,
     paddingRight: 25,
+    fontFamily: "SFLight",
+    maxWidth: "100%",
+    shadowOffset: { width: 0, height: 0 },
   },
   title: {
     textAlign: "center",
     fontSize: 34,
     lineHeight: 44,
     fontWeight: "700",
+    fontFamily: "SFMedium",
   },
   description: {
     textAlign: "center",
     fontSize: 17,
     lineHeight: 22,
+    fontFamily: "SFLight",
   },
   bottomText: {
     color: "#31A062",
     fontSize: 17,
     textAlign: "center",
     marginTop: 44,
+    fontFamily: "SFLight",
   },
   goBack: {
-    paddingRight: 35,
+    marginBottom: 10,
   },
 });
 
