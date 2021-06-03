@@ -31,7 +31,7 @@ const DATA = [
   },
 ];
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

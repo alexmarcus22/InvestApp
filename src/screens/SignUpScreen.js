@@ -1,12 +1,12 @@
+import React from "react";
 import AppLoading from "expo-app-loading";
-import React, { useEffect } from "react";
 import { StyleSheet, SafeAreaView, Image, Text, View } from "react-native";
 import ButtonComponent from "../components/Button";
 import FontsLoading from "../components/fonts";
 
-const SignUpScreen = ({ navigation }) => {
+const SignUpScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
+    if (!dataLoaded) {
     return (
       <AppLoading
         startAsync={fetchFonts}
@@ -40,7 +40,6 @@ const SignUpScreen = ({ navigation }) => {
       </View>
       <ButtonComponent
         title="Create Account"
-        navigation={navigation}
         pathToNavigate="Create Account"
       />
       <Text style={styles.noBackgroundText}>Login</Text>
