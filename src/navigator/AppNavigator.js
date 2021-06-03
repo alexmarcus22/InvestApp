@@ -23,7 +23,7 @@ const MainStackNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Sign Up" component={SignUpScreen} />
+        <Stack.Screen name="Sign Up" component={Notification} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
       </Stack.Navigator>
     </NavigationContainer>
