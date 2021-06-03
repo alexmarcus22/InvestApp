@@ -10,7 +10,7 @@ import TranzitScreen from "../screens/Tranzit";
 
 const Tab = createBottomTabNavigator();
 
-const Navigation = () => {
+const Navigation = ({ navigation }) => {
   return (
     <Tab.Navigator
       tabBarOptions={{

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   StyleSheet,
   SafeAreaView,
@@ -13,7 +13,6 @@ import {
 } from "react-native";
 import AppLoading from "expo-app-loading";
 import FontsLoading from "../components/fonts";
-import { useNavigation } from "@react-navigation/native";
 
 const DATA = [
   {
@@ -36,9 +35,8 @@ const DATA = [
   },
 ];
 
-const AssetsScreen = () => {
+const AssetsScreen = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading

@@ -7,16 +7,13 @@ import {
   View,
   Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import FontsLoading from "../components/fonts";
 import AppLoading from "expo-app-loading";
 import SignupForm from "../components/SignUp/sign-up-form.component";
-import { useNavigation } from "@react-navigation/native";
 
-const CreateAccount = () => {
+const CreateAccount = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -26,7 +23,6 @@ const CreateAccount = () => {
       />
     );
   }
-  
 
   return (
     <ScrollView>
@@ -48,7 +44,7 @@ const CreateAccount = () => {
             <SignupForm />
             <Text
               style={styles.bottomText}
-              onPress={() => navigation.navigate("Sign Up")}
+              onPress={() => navigation.navigate("Home Page")}
             >
               Already have an account?
             </Text>
@@ -91,7 +87,6 @@ const styles = StyleSheet.create({
     fontFamily: "SFLight",
     maxWidth: "100%",
     shadowOffset: { width: 0, height: 0 },
-    marginBottom: 18,
   },
   title: {
     textAlign: "center",
