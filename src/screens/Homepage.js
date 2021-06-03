@@ -51,7 +51,7 @@ const NEWS = [
   },
 ];
 
-export const HomePage = ({ navigation }) => {
+export const HomePage = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

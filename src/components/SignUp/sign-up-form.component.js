@@ -1,46 +1,19 @@
-import React from "react";
-import { useFormik } from "formik";
-import { StyleSheet, TouchableOpacity } from "react-native";
-import styled from "styled-components";
+import React, { useState } from "react";
+import {
+  StyleSheet,
+  TouchableOpacity,
+  TextInput,
+  View,
+  Button,
+} from "react-native";
 import FontsLoading from "../fonts";
 import AppLoading from "expo-app-loading";
 
-// const SubmitButton = styled.button`
-//   text-align: center;
-//   border: none;
-//   background-color: #31a062;
-//   border-radius: 20px;
-//   color: white;
-//   font-size: 17px;
-//   font-family: "SFRegular";
-//   padding: 20px 0;
-// `;
-
-// const InputText = styled.input`
-//   border: 0.5px solid #828282;
-//   border-radius: 20px;
-//   padding: 20px 25px;
-//   font-size: 17px;
-//   max-width: 100%;
-//   font-family: "SFLight";
-//   background-color: transparent;
-//   margin-bottom: 18px;
-// `;
-
 const SignupForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      email: "",
-      name: "",
-      password: "",
-    },
-
-    onSubmit: (values) => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  const [fullName, setFullName] = useState("");
+  const [emailAddress, setEmailAddress] = useState("");
+  const [password, setPassword] = useState("");
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -52,42 +25,56 @@ const SignupForm = () => {
   }
 
   return (
-    <form
-      onSubmit={formik.handleSubmit}
-      style={{ width: "100%", display: "flex", flexDirection: "column" }}
-    >
-      {/* <InputText
+    <View>
+      <TextInput
         id="name"
         name="name"
         type="name"
-        onChange={formik.handleChange}
-        value={formik.values.name}
-        style={{ flex: 1 }}
+        onChange={(text) => setFullName(text)}
+        defaultValue={fullName}
+        style={styles.input}
         placeholder="Fullname"
       />
-      <InputText
+      <TextInput
         id="email"
         name="email"
         type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-        style={{ flex: 1 }}
+        onChange={(text) => setEmailAddress(text)}
+        defaultValue={emailAddress}
+        style={styles.input}
         placeholder="Email"
       />
-      <InputText
+      <TextInput
         id="password"
         name="password"
         type="password"
-        onChange={formik.handleChange}
-        value={formik.values.password}
-        style={{ flex: 1 }}
+        onChange={(text) => setPassword(text)}
+        defaultValue={password}
+        style={styles.input}
         placeholder="Password"
-      /> */}
+      />
       <TouchableOpacity>
-        {/* <SubmitButton type="submit">Create Account</SubmitButton> */}
+        <Button type="submit" title="Create Account" />
       </TouchableOpacity>
-    </form>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  input: {
+    borderWidth: 1,
+    borderColor: "#828282",
+    borderRadius: 20,
+    paddingTop: 20,
+    paddingBottom: 20,
+    paddingLeft: 25,
+    fontSize: 17,
+    paddingRight: 25,
+    fontFamily: "SFLight",
+    maxWidth: "100%",
+    shadowOffset: { width: 0, height: 0 },
+    marginBottom: 18,
+  },
+});
 
 export default SignupForm;

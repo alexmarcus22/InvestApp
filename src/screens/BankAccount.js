@@ -27,7 +27,7 @@ const DATA = [
   },
 ];
 
-const BankAccountScreen = ({ navigation }) => {
+const BankAccountScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
@@ -73,7 +73,6 @@ const BankAccountScreen = ({ navigation }) => {
         <View>
           <ButtonComponent
             title="Create Account"
-            navigation={navigation}
             pathToNavigate="Create Account"
           />
         </View>
