@@ -49,10 +49,10 @@ const BankAccountScreen = () => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ flex: 1 }}>
+          <TouchableOpacity>
             <ImageBackground
               style={styles.close}
               source={require("../../assets/bank/back.png")}
@@ -60,9 +60,7 @@ const BankAccountScreen = () => {
               alignSelf="center"
             />
           </TouchableOpacity>
-          <View style={{ flex: 11, alignItems: "center", paddingRight: 30 }}>
-            <Text style={styles.headerTitle}>Bank of account info</Text>
-          </View>
+          <Text style={styles.headerTitle}>Bank of account info</Text>
         </View>
         <FlatList
           data={DATA}
@@ -82,11 +80,14 @@ const BankAccountScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-    paddingVertical: 63,
+  outerContainer: {
     height: "100%",
     backgroundColor: "#F6F6F9",
+  },
+  innerContainer: {
+    paddingHorizontal: 30,
+    paddingVertical: 63,
+    flex: 1,
   },
   headerContainer: {
     flexDirection: "row",
@@ -102,6 +103,10 @@ const styles = StyleSheet.create({
     fontFamily: "SFMedium",
     fontWeight: "400",
     fontSize: 22,
+    flex: 11,
+    alignItems: "center",
+    textAlign: "center",
+    paddingRight: 6,
   },
   close: {
     position: "relative",

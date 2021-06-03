@@ -33,7 +33,7 @@ const DATA = [
   },
 ];
 
-const ContactScreen = () => {
+const NotificationScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
@@ -45,10 +45,10 @@ const ContactScreen = () => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ paddingBottom: 24 }}>
+          <TouchableOpacity>
             <Image
               source={require("../../assets/profile/back.png")}
               style={styles.backImage}
@@ -73,11 +73,10 @@ const ContactScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: { backgroundColor: "#F8F8F9", height: "100%" },
+  innerContainer: {
     paddingHorizontal: 30,
     paddingVertical: 63,
-    height: "100%",
-    backgroundColor: "#F6F6F9",
   },
   headerContainer: {
     paddingBottom: 29,
@@ -85,6 +84,7 @@ const styles = StyleSheet.create({
   backImage: {
     width: 6,
     height: 12,
+    marginBottom: 24,
   },
   headerText: {
     fontFamily: "SFMedium",
@@ -93,4 +93,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default ContactScreen;
+export default NotificationScreen;

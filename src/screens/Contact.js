@@ -64,10 +64,10 @@ const ContactScreen = () => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ flex: 1 }}>
+          <TouchableOpacity style={styles.row1}>
             <ImageBackground
               style={styles.close}
               source={require("../../assets/contact/back.png")}
@@ -75,9 +75,7 @@ const ContactScreen = () => {
               alignSelf="center"
             />
           </TouchableOpacity>
-          <View style={{ flex: 11, textAlign: "center", paddingRight: 20 }}>
-            <Text style={styles.headerTitle}>Contact Info</Text>
-          </View>
+          <Text style={styles.headerTitle}>Contact Info</Text>
         </View>
         <View style={styles.profile}>
           <TouchableOpacity>
@@ -105,7 +103,8 @@ const ContactScreen = () => {
 };
 
 const styles = StyleSheet.create({
-  container: {
+  outerContainer: { backgroundColor: "#F8F8F9", height: "100%" },
+  innerContainer: {
     paddingHorizontal: 30,
     paddingVertical: 63,
     height: "100%",
@@ -117,6 +116,9 @@ const styles = StyleSheet.create({
     marginBottom: 50,
     alignItems: "center",
   },
+  row1: {
+    flex: 1,
+  },
   close: {
     position: "relative",
     zIndex: 10,
@@ -127,6 +129,9 @@ const styles = StyleSheet.create({
     fontFamily: "SFMedium",
     fontweight: "400",
     fontSize: 22,
+    flex: 11,
+    textAlign: "center",
+    paddingRight: 20,
   },
   profile: {
     flexDirection: "column",

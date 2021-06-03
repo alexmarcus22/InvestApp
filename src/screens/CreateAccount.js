@@ -26,7 +26,6 @@ const CreateAccount = () => {
       />
     );
   }
-  
 
   return (
     <ScrollView>
@@ -44,15 +43,13 @@ const CreateAccount = () => {
           </Text>
         </View>
         <View style={styles.inputsContainer}>
-          <View style={{ width: "100%" }}>
-            <SignupForm />
-            <Text
-              style={styles.bottomText}
-              onPress={() => navigation.navigate("Sign Up")}
-            >
-              Already have an account?
-            </Text>
-          </View>
+          <SignupForm />
+          <Text
+            style={styles.bottomText}
+            onPress={() => navigation.navigate("Sign Up")}
+          >
+            Already have an account?
+          </Text>
         </View>
       </SafeAreaView>
     </ScrollView>

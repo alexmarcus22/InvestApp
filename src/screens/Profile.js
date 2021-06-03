@@ -8,10 +8,10 @@ import {
   ScrollView,
   TouchableHighlight,
   FlatList,
-  TouchableOpacity,
 } from "react-native";
 import AppLoading from "expo-app-loading";
 import CardLink from "../components/cardLink";
+import FontsLoading from "../components/fonts";
 
 const DATA = [
   {
@@ -47,7 +47,7 @@ const ProfileScreen = () => {
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
-            <TouchableHighlight style={{ paddingBottom: 24 }}>
+            <TouchableHighlight>
               <Image
                 source={require("../../assets/profile/back.png")}
                 style={styles.backImage}
@@ -90,6 +90,7 @@ const styles = StyleSheet.create({
   backImage: {
     width: 6,
     height: 12,
+    marginBottom: 24,
   },
   headerText: {
     fontFamily: "SFMedium",

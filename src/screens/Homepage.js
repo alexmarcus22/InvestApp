@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   View,
   Text,
@@ -94,29 +94,21 @@ export const HomePage = () => {
                   <Text style={styles.plansTitle}>Best plans.</Text>
                   <Text style={styles.plansSeeAll}>See All →</Text>
                 </View>
-                <SafeAreaView style={{ flexDirection: "row" }}>
+                <SafeAreaView style={styles.row1}>
                   <FlatList
                     data={DATA}
                     numColumns={DATA.length}
                     renderItem={(item) => {
                       return <PlanComponent {...item} length={DATA.length} />;
                     }}
-                    style={{
-                      flexDirection: "row",
-                      overflow: "auto",
-                      width: "100%",
-                    }}
+                    style={styles.item}
                     keyExtractor={(item) => item.id}
                   />
                 </SafeAreaView>
               </View>
               <View style={styles.investContainer}>
                 <Text style={styles.investTitle}>Investment Guide</Text>
-                <SafeAreaView
-                  style={{
-                    flexDirection: "column",
-                  }}
-                >
+                <SafeAreaView style={styles.column1}>
                   <FlatList
                     data={NEWS}
                     numColumns={1}
@@ -137,6 +129,11 @@ export const HomePage = () => {
 };
 
 const styles = StyleSheet.create({
+  item: {
+    flexDirection: "row",
+    overflow: "auto",
+    width: "100%",
+  },
   container: {
     flexDirection: "column",
     paddingHorizontal: 30,
@@ -157,11 +154,15 @@ const styles = StyleSheet.create({
     fontWeight: "400",
     fontFamily: "SFBlack",
   },
+  row1: { flexDirection: "row" },
   hamburger: {
     position: "relative",
     zIndex: 1,
     width: 24,
     height: 24,
+  },
+  column1: {
+    flexDirection: "column",
   },
   notification: {
     position: "relative",
