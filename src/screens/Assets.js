@@ -12,8 +12,7 @@ import {
 } from "react-native";
 import AppLoading from "expo-app-loading";
 import FontsLoading from "../components/fonts";
-import { useNavigation } from "@react-navigation/native";
-import styles from "../styles/Assets.style";
+import styles from "../theme/styles/Assets.style";
 const DATA = [
   {
     id: "1",

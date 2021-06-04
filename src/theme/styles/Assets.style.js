@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const styles = StyleSheet.create({
+const style = StyleSheet.create({
   container: {
     paddingTop: 20,
     paddingBottom: 26,
@@ -10,6 +10,13 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginBottom: 20,
+  },
+  row1: {
+    flex: 11,
+    alignItems: "center",
+  },
+  row2: {
+    flex: 1,
   },
   close: {
     position: "relative",
@@ -32,6 +39,7 @@ const styles = StyleSheet.create({
     color: "#B2B2B2",
     marginBottom: 8,
   },
+  valueContainer: { flexDirection: "row", alignItems: "center" },
   valueContent: {
     fontSize: 32,
     fontFamily: "SFMedium",
@@ -90,6 +98,14 @@ const styles = StyleSheet.create({
     color: "#FE555D",
     textAlign: "center",
   },
+  historyItem: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    marginBottom: 10,
+    paddingBottom: 15,
+    borderBottomWidth: 1,
+    borderBottomColor: "#E7E7E7",
+  },
   historyTitle: {
     fontSize: 22,
     lineHeight: 28,
@@ -102,6 +118,8 @@ const styles = StyleSheet.create({
     fontWeight: "bold",
     lineHeight: 28,
   },
+  historyItemDate: { color: "#B2B2B2" },
+  historyItemSubTitle: { color: "#B2B2B2" },
 });
 
-export default styles;
+export default style;

@@ -11,7 +11,7 @@ import AppLoading from "expo-app-loading";
 import BankCard from "../components/bankCard";
 import FontsLoading from "../components/fonts";
 import ButtonComponent from "../components/Button";
-import styles from "../styles/BankAccount.style";
+import styles from "../theme/styles/BankAccount.style";
 
 const DATA = [
   {
