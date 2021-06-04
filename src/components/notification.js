@@ -4,7 +4,7 @@ import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
 const Notification = ({ item }) => {
   return (
     <View style={styles.item}>
-      <TouchableOpacity style={{ paddingRight: 13 }}>
+      <TouchableOpacity style={styles.imageContainer}>
         <Image source={item.bg} style={[styles.image]} />
       </TouchableOpacity>
       <Text style={styles.title}>{item.title}</Text>
@@ -37,6 +37,9 @@ const styles = StyleSheet.create({
     maxWidth: 260,
     color: "#474747",
     letterSpacing: 0.8,
+  },
+  imageContainer: {
+    paddingRight: 13,
   },
   image: {
     width: 70,

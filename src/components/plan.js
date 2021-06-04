@@ -8,7 +8,6 @@ import {
 } from "react-native";
 
 const Item = ({ item, length }) => {
-  console.log(item.bg);
   return (
     <TouchableOpacity>
       <ImageBackground

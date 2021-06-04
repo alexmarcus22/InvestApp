@@ -11,6 +11,7 @@ import {
 import AppLoading from "expo-app-loading";
 import Notification from "../components/notification";
 import FontsLoading from "../components/fonts";
+import styles from "../theme/styles/Notification.style";
 
 const DATA = [
   {
@@ -33,7 +34,7 @@ const DATA = [
   },
 ];
 
-const ContactScreen = ({ navigation }) => {
+const NotificationScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
@@ -45,10 +46,10 @@ const ContactScreen = ({ navigation }) => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ paddingBottom: 24 }}>
+          <TouchableOpacity>
             <Image
               source={require("../../assets/profile/back.png")}
               style={styles.backImage}
@@ -72,25 +73,4 @@ const ContactScreen = ({ navigation }) => {
   );
 };
 
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-    paddingVertical: 63,
-    height: "100%",
-    backgroundColor: "#F6F6F9",
-  },
-  headerContainer: {
-    paddingBottom: 29,
-  },
-  backImage: {
-    width: 6,
-    height: 12,
-  },
-  headerText: {
-    fontFamily: "SFMedium",
-    fontSize: 34,
-    lineHeight: 44,
-  },
-});
-
-export default ContactScreen;
+export default NotificationScreen;

@@ -1,81 +1,18 @@
 import React, { useState } from "react";
-import { TouchableOpacity } from "react-native";
+import {
+  TouchableOpacity,
+  View,
+  TextInput,
+  StyleSheet,
+  Text,
+} from "react-native";
 import AppLoading from "expo-app-loading";
-
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  position: relative;
-  margin-bottom: 10px;
-`;
-
-const Label = styled.label`
-  color: black;
-  font-weight: normal;
-  opacity: 1;
-  order: 1;
-  padding-bottom: 12px;
-  font-size: 12px;
-  line-height: 16px;
-  pointer-events: none;
-  text-shadow: none;
-  text-transform: capitalize;
-  transform-origin: left top;
-  transform: scale(1) translate3d(0, 22px, 0);
-  transition: 200ms ease all;
-  font-family: "SFLight";
-  font-weight: 500;
-`;
-
-const Input = styled.input`
-  border-radius: 0;
-  display: flex;
-  font-size: 100%;
-  line-height: 25px;
-  text-shadow: none;
-  border: 0;
-  border-bottom: 0.5px solid #000000;
-  color: black;
-  flex: 1 1 auto;
-  order: 2;
-  background-color: transparent;
-  padding: 7px 16px 12px 0;
-  font-family: "SFLight";
-
-  &:focus {
-    outline: 0;
-  }
-
-  &::placeholder {
-    color: black;
-    opacity: 1;
-    font-family: "SFLight";
-    font-weight: 700;
-    font-size: 17px;
-  }
-  // &:focus + label {
-  //   color: #3949ab;
-  //   opacity: 1;
-  //   transform: scale(0.8) translate3d(0, 5px, 0);
-  // }
-`;
-
-const ChangeText = styled.div`
-  position: absolute;
-  top: 40px;
-  right: 15px;
-  font-family: "SFLight";
-  font-weight: 700;
-  color: #31a05f;
-  font-style: normal;
-  font-weight: 600;
-  font-size: 12px;
-  line-height: 16px;
-  letter-spacing: 0.01em;
-`;
+import FontsLoading from "./fonts";
 
 const ContactInput = (props) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  const { placeHolder, label, id, type } = props.item;
+  const [fullName, setFullName] = useState("");
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -86,20 +23,44 @@ const ContactInput = (props) => {
     );
   }
   return (
-    <Container>
-      <TouchableOpacity>
-        <ChangeText>Change</ChangeText>
-      </TouchableOpacity>
-      <Input
+    <View style={styles.container}>
+      <Text style={styles.label}>{label}</Text>
+      {/* <TouchableOpacity>
+        <Text>Change</Text>
+      </TouchableOpacity> */}
+      <TextInput
         id={id}
+        name="name"
         type={type}
-        name={label}
+        onChange={(text) => setFullName(text)}
+        defaultValue={fullName}
+        style={styles.input}
         placeholder={placeHolder}
-        readOnly
       />
-      <Label>{label}</Label>
-    </Container>
+    </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {
+    position: "relative",
+    height: "100%",
+    marginBottom: 36,
+  },
+  input: {
+    paddingBottom: 10,
+    borderTopWidth: 0,
+    borderBottomWidth: 1,
+    lineHeight: 25,
+    fontFamily: "SFMedium",
+    opacity: 1,
+    color: "black",
+    placeholderTextColor: "black",
+    fontWeight: "400",
+  },
+  label: {
+    color: "black",
+  },
+});
 
 export default ContactInput;
