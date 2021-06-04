@@ -7,8 +7,8 @@ const FontsLoading = () => {
     return Font.loadAsync({
       SFLight: require("../../assets/fonts/SF-Pro-Display-Light.otf"),
       SFRegular: require("../../assets/fonts/SF-Pro-Display-Regular.otf"),
-      SFBlack: require("../../assets/fonts/SF-Pro-Display-Black.otf"),
       SFMedium: require("../../assets/fonts/SF-Pro-Display-Medium.otf"),
+      SFBlack: require("../../assets/fonts/SF-Pro-Display-Black.otf"),
     });
   };
 
