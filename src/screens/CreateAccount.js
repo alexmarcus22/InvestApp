@@ -7,17 +7,18 @@ import {
   View,
   Image,
   ScrollView,
-  TextInput,
 } from "react-native";
 import FontsLoading from "../components/fonts";
 import AppLoading from "expo-app-loading";
 import SignupForm from "../components/SignUp/sign-up-form.component";
+<<<<<<< HEAD
 import { useNavigation } from "@react-navigation/native";
 import styles from "../theme/styles/CreateAccount.style";
+=======
+>>>>>>> ce4770e555af2f98e0b5688dd2421e741ed1ab20
 
-const CreateAccount = () => {
+const CreateAccount = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading

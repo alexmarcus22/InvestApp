@@ -1,11 +1,11 @@
-import React from "react";
 import AppLoading from "expo-app-loading";
+import React, { useEffect } from "react";
 import { StyleSheet, SafeAreaView, Image, Text, View } from "react-native";
 import ButtonComponent from "../components/Button";
 import FontsLoading from "../components/fonts";
 import styles from "../theme/styles/SignUp.style";
 
-const SignUpScreen = () => {
+const SignUpScreen = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

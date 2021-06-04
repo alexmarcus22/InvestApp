@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   SafeAreaView,
   Image,
@@ -34,7 +34,7 @@ const DATA = [
   },
 ];
 
-const AssetsScreen = () => {
+const AssetsScreen = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

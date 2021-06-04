@@ -32,7 +32,7 @@ const DATA = [
   },
 ];
 
-const ProfileScreen = () => {
+const ProfileScreen = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

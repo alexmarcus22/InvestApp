@@ -52,7 +52,7 @@ const DATA = [
   },
 ];
 
-const ContactScreen = () => {
+const ContactScreen = ({ navigation }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
