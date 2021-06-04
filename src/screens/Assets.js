@@ -1,6 +1,5 @@
 import React from "react";
 import {
-  StyleSheet,
   SafeAreaView,
   Image,
   Text,
@@ -13,8 +12,7 @@ import {
 } from "react-native";
 import AppLoading from "expo-app-loading";
 import FontsLoading from "../components/fonts";
-import { useNavigation } from "@react-navigation/native";
-
+import styles from "../theme/styles/Assets.style";
 const DATA = [
   {
     id: "1",
@@ -38,7 +36,6 @@ const DATA = [
 
 const AssetsScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -53,10 +50,10 @@ const AssetsScreen = () => {
       <SafeAreaView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
-            <View style={{ flex: 11, alignItems: "center" }}>
+            <View style={styles.row1}>
               <Text style={styles.headerTitle}>My Asset</Text>
             </View>
-            <TouchableHighlight style={{ flex: 1 }}>
+            <TouchableHighlight style={styles.row2}>
               <ImageBackground
                 style={styles.close}
                 source={require("../../assets/assets/close.png")}
@@ -67,7 +64,7 @@ const AssetsScreen = () => {
           </View>
           <View style={styles.headerContent}>
             <Text style={styles.titleContent}>Your total asset portofolio</Text>
-            <View style={{ flexDirection: "row", alignItems: "center" }}>
+            <View style={styles.valueContainer}>
               <Text style={styles.valueContent}>N203,935</Text>
               <Image
                 source={require("../../assets/assets/vote.png")}
@@ -97,18 +94,11 @@ const AssetsScreen = () => {
                 return (
                   <View>
                     <Text style={styles.historyItemTitle}>{item.title}</Text>
-                    <View
-                      style={{
-                        flexDirection: "row",
-                        justifyContent: "space-between",
-                        marginBottom: 10,
-                        paddingBottom: 15,
-                        borderBottomWidth: 1,
-                        borderBottomColor: "#E7E7E7",
-                      }}
-                    >
-                      <Text style={{ color: "#B2B2B2" }}>{item.subtitle}</Text>
-                      <Text style={{ color: "#B2B2B2" }}>{item.date}</Text>
+                    <View style={styles.historyItem}>
+                      <Text style={styles.historyItemSubTitle}>
+                        {item.subtitle}
+                      </Text>
+                      <Text style={styles.historyItemDate}>{item.date}</Text>
                     </View>
                   </View>
                 );
@@ -123,109 +113,5 @@ const AssetsScreen = () => {
     </ScrollView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingTop: 20,
-    paddingBottom: 26,
-    paddingHorizontal: 30,
-  },
-  headerContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 20,
-  },
-  close: {
-    position: "relative",
-    zIndex: 1,
-    width: 24,
-    height: 24,
-  },
-  headerTitle: {
-    fontFamily: "SFMedium",
-    fontWeight: "400",
-    fontSize: 22,
-  },
-  headerContent: {
-    marginBottom: 30,
-  },
-  titleContent: {
-    fontSize: 16,
-    fontFamily: "SFMedium",
-    fontWeight: "300",
-    color: "#B2B2B2",
-    marginBottom: 8,
-  },
-  valueContent: {
-    fontSize: 32,
-    fontFamily: "SFMedium",
-    fontWeight: "600",
-  },
-  vote: {
-    position: "relative",
-    zIndex: 1,
-    width: 16,
-    height: 16,
-    marginLeft: 40,
-  },
-  valuePercent: {
-    fontSize: 11,
-    color: "#00B907",
-  },
-  currentPlans: {
-    marginTop: 13,
-    marginBottom: 30,
-  },
-  titlePlans: {
-    fontSize: 22,
-    lineHeight: 28,
-    marginBottom: 20,
-    fontWeight: "bold",
-    fontFamily: "SFMedium",
-  },
-  imageContainer: {
-    width: "100%",
-  },
-  imagePlans: {
-    borderRadius: 20,
-    paddingBottom: 115,
-    marginBottom: 10,
-    paddingTop: 43,
-    paddingRight: 28,
-    paddingLeft: 28,
-  },
-  imagePlansTitle: {
-    fontSize: 18,
-    lineHeight: 24,
-    letterSpacing: 0.8,
-    fontFamily: "SFMedium",
-    fontWeight: "700",
-  },
-  imagePlansSubTitle: {
-    fontSize: 13,
-    lineHeight: 24,
-    letterSpacing: 0.8,
-  },
-  allPlans: {
-    letterSpacing: 0.8,
-    lineHeight: 28,
-    fontWeight: "600",
-    fontSize: 18,
-    color: "#FE555D",
-    textAlign: "center",
-  },
-  historyTitle: {
-    fontSize: 22,
-    lineHeight: 28,
-    letterSpacing: 0.8,
-    marginBottom: 20,
-  },
-  historyItemTitle: {
-    fontFamily: "SFMedium",
-    fontSize: 18,
-    fontWeight: "bold",
-    lineHeight: 28,
-  },
-});
 
 export default AssetsScreen;

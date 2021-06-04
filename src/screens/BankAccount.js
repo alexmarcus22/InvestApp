@@ -1,11 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Text,
   View,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
-  Image,
   FlatList,
   ImageBackground,
 } from "react-native";
@@ -13,6 +11,7 @@ import AppLoading from "expo-app-loading";
 import BankCard from "../components/bankCard";
 import FontsLoading from "../components/fonts";
 import ButtonComponent from "../components/Button";
+import styles from "../theme/styles/BankAccount.style";
 
 const DATA = [
   {
@@ -49,10 +48,10 @@ const BankAccountScreen = () => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ flex: 1 }}>
+          <TouchableOpacity>
             <ImageBackground
               style={styles.close}
               source={require("../../assets/bank/back.png")}
@@ -60,9 +59,7 @@ const BankAccountScreen = () => {
               alignSelf="center"
             />
           </TouchableOpacity>
-          <View style={{ flex: 11, alignItems: "center", paddingRight: 30 }}>
-            <Text style={styles.headerTitle}>Bank of account info</Text>
-          </View>
+          <Text style={styles.headerTitle}>Bank of account info</Text>
         </View>
         <FlatList
           data={DATA}
@@ -80,35 +77,4 @@ const BankAccountScreen = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-    paddingVertical: 63,
-    height: "100%",
-    backgroundColor: "#F6F6F9",
-  },
-  headerContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 50,
-    alignItems: "center",
-  },
-  backImage: {
-    width: 6,
-    height: 12,
-  },
-  headerTitle: {
-    fontFamily: "SFMedium",
-    fontWeight: "400",
-    fontSize: 22,
-  },
-  close: {
-    position: "relative",
-    zIndex: 10,
-    width: 6,
-    height: 12,
-  },
-});
-
 export default BankAccountScreen;

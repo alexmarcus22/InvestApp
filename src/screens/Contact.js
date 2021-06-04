@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Text,
   View,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
   ImageBackground,
@@ -12,6 +11,7 @@ import {
 import AppLoading from "expo-app-loading";
 import ContactInput from "../components/contactInput";
 import FontsLoading from "../components/fonts";
+import styles from "../theme/styles/Contact.style";
 
 const DATA = [
   {
@@ -64,10 +64,10 @@ const ContactScreen = () => {
     );
   }
   return (
-    <SafeAreaView style={{ backgroundColor: "#F8F8F9", height: "100%" }}>
-      <View style={styles.container}>
+    <SafeAreaView style={styles.outerContainer}>
+      <View style={styles.innerContainer}>
         <View style={styles.headerContainer}>
-          <TouchableOpacity style={{ flex: 1 }}>
+          <TouchableOpacity style={styles.row1}>
             <ImageBackground
               style={styles.close}
               source={require("../../assets/contact/back.png")}
@@ -75,9 +75,7 @@ const ContactScreen = () => {
               alignSelf="center"
             />
           </TouchableOpacity>
-          <View style={{ flex: 11, textAlign: "center", paddingRight: 20 }}>
-            <Text style={styles.headerTitle}>Contact Info</Text>
-          </View>
+          <Text style={styles.headerTitle}>Contact Info</Text>
         </View>
         <View style={styles.profile}>
           <TouchableOpacity>
@@ -103,42 +101,5 @@ const ContactScreen = () => {
     </SafeAreaView>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    paddingHorizontal: 30,
-    paddingVertical: 63,
-    height: "100%",
-    backgroundColor: "#F6F6F9",
-  },
-  headerContainer: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginBottom: 50,
-    alignItems: "center",
-  },
-  close: {
-    position: "relative",
-    zIndex: 10,
-    width: 6,
-    height: 12,
-  },
-  headerTitle: {
-    fontFamily: "SFMedium",
-    fontweight: "400",
-    fontSize: 22,
-  },
-  profile: {
-    flexDirection: "column",
-    width: "100%",
-    alignItems: "center",
-    marginBottom: 20,
-  },
-  profileImage: {
-    width: 150,
-    height: 150,
-    zIndex: 1,
-  },
-});
 
 export default ContactScreen;
