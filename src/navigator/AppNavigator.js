@@ -2,7 +2,6 @@ import * as React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import { Ionicons } from "@expo/vector-icons";
 import SignUpScreen from "../screens/SignUpScreen";
 import CreateAccount from "../screens/CreateAccount";
 import HomePage from "../screens/HomePage";
@@ -23,7 +22,7 @@ const MainStackNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Sign Up" component={Notification} />
+        <Stack.Screen name="Sign Up" component={BankAccountScreen} />
         <Stack.Screen name="Create Account" component={CreateAccount} />
       </Stack.Navigator>
     </NavigationContainer>
