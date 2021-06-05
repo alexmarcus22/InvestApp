@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { assetsData } from "../../theme/mockData";
 import {
   SafeAreaView,
   Image,
@@ -10,13 +11,12 @@ import {
   ImageBackground,
   FlatList,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import FontsLoading from "../../components/fonts";
-import styles from "./Assets.style";
+import { styles } from "./assetsStyle";
 import images from "../../theme/images";
-import { assetsData } from "../../theme/strings";
+import FontsLoading from "../../theme/fonts";
+import AppLoading from "expo-app-loading";
 
-const AssetsScreen = ({ navigation }) => {
+const AssetsScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
@@ -36,12 +36,7 @@ const AssetsScreen = ({ navigation }) => {
               <Text style={styles.headerTitle}>My Asset</Text>
             </View>
             <TouchableHighlight style={styles.row2}>
-              <ImageBackground
-                style={styles.close}
-                source={images.close}
-                resizeMode="contain"
-                alignSelf="center"
-              />
+              <ImageBackground style={styles.close} source={images.close} />
             </TouchableHighlight>
           </View>
           <View style={styles.headerContent}>

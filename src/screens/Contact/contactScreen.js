@@ -1,4 +1,5 @@
 import React from "react";
+import { contactData } from "../../theme/mockData";
 import {
   Text,
   View,
@@ -8,13 +9,13 @@ import {
   Image,
   FlatList,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import ContactInput from "../../components/ContactInput/ContactInput.component";
-import { styles } from "./Contact.style";
-import { contactData } from "../../theme/strings";
+import { styles } from "./contactStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
-const ContactScreen = ({ navigation }) => {
+import FontsLoading from "../../components/SubmitButton/fonts";
+import AppLoading from "expo-app-loading";
+import ContactInput from "../../components/ContactInput/contactInputComponent";
+
+const ContactScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

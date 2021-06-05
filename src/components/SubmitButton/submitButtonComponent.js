@@ -1,8 +1,8 @@
-import AppLoading from "expo-app-loading";
 import React from "react";
 import { Text, TouchableOpacity, StyleSheet } from "react-native";
-import FontsLoading from "../fonts";
-import { styles } from "./SubmitButton.style";
+import { styles } from "./submitButtonStyle";
+import AppLoading from "expo-app-loading";
+import FontsLoading from "../../theme/fonts";
 const SubmitButtonComponent = ({ text }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {

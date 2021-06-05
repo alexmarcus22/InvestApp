@@ -1,19 +1,18 @@
 import React, { useState } from "react";
+import { notificationData } from "../../theme/mockData";
 import {
   Text,
   View,
-  StyleSheet,
   SafeAreaView,
   TouchableOpacity,
   Image,
   FlatList,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import Notification from "../../components/Notification/Notification.component";
-import { styles } from "./Notification.style";
-import { notificationData } from "../../theme/strings";
+import { styles } from "./notificationStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
+import Notification from "../../components/Notification/notificationComponent";
+import FontsLoading from "../../components/SubmitButton/fonts";
+import AppLoading from "expo-app-loading";
 
 const NotificationScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();

@@ -1,7 +1,7 @@
-import { useNavigation } from "@react-navigation/native";
 import React from "react";
+import { useNavigation } from "@react-navigation/native";
 import { Text, StyleSheet } from "react-native";
-import { styles } from "./Button.style";
+import { styles } from "./buttonStyle";
 
 const ButtonComponent = ({ title, pathToNavigate }) => {
   const navigation = useNavigation();

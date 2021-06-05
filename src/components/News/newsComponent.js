@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, View, StyleSheet } from "react-native";
-import { styles } from "./News.style";
+import { Text, View } from "react-native";
+import { styles } from "./newsStyle";
 
 const Item = ({ item }) => (
   <View style={styles.item} onPress={() => navigation.navigate("Sign Up")}>

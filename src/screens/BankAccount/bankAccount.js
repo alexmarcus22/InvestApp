@@ -1,4 +1,5 @@
 import React from "react";
+import { bankData } from "../../theme/mockData";
 import {
   Text,
   View,
@@ -7,15 +8,14 @@ import {
   FlatList,
   ImageBackground,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import BankCard from "../../components/BankCard/BankCard.component";
-import ButtonComponent from "../../components/Button/Button.component";
-import { styles } from "./BankAccount.style";
-import { bankData } from "../../theme/strings";
+import { styles } from "./bankAccountStyle";
+import FontsLoading from "../../theme/fonts";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
+import ButtonComponent from "../../components/Button/buttonComponent";
+import BankCard from "../../components/BankCard/bankCard";
+import AppLoading from "expo-app-loading";
 
-const BankAccountScreen = ({ navigation }) => {
+const BankAccountScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

@@ -1,6 +1,6 @@
 import { StyleSheet } from "react-native";
 
-const style = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     paddingTop: 20,
     paddingBottom: 26,
@@ -10,6 +10,7 @@ const style = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "center",
     marginBottom: 20,
+    alignItems: "center",
   },
   row1: {
     flex: 11,
@@ -121,5 +122,3 @@ const style = StyleSheet.create({
   historyItemDate: { color: "#B2B2B2" },
   historyItemSubTitle: { color: "#B2B2B2" },
 });
-
-export default style;

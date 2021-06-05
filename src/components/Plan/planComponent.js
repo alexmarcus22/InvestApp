@@ -1,12 +1,6 @@
 import React from "react";
-import {
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  ImageBackground,
-  Image,
-} from "react-native";
-import { styles } from "./Plan.style";
+import { Text, TouchableOpacity, ImageBackground } from "react-native";
+import { styles } from "./planStyle";
 
 const Item = ({ item, length }) => {
   return (

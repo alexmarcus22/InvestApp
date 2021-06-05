@@ -2,16 +2,27 @@ import React from "react";
 import {
   View,
   Text,
-  StyleSheet,
   Image,
   SafeAreaView,
   TouchableHighlight,
   TouchableOpacity,
 } from "react-native";
+import { styles } from "./bankCardStyle";
 import images from "../../theme/images";
-import { styles } from "./BankCard.style";
+import AppLoading from "expo-app-loading";
+import FontsLoading from "../../theme/fonts";
 
 const BankCard = ({ item }) => {
+  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  if (!dataLoaded) {
+    return (
+      <AppLoading
+        startAsync={fetchFonts}
+        onFinish={() => setDataLoaded(true)}
+        onError={console.warn}
+      />
+    );
+  }
   return (
     <SafeAreaView style={styles.bankContainer}>
       <TouchableHighlight>

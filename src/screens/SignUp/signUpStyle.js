@@ -6,14 +6,13 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     width: "100%",
-    alignItems: "stretch",
+    alignItems: "center",
     paddingLeft: 34,
     paddingRight: 34,
   },
   logo: {
     width: 300,
     height: 273,
-    alignSelf: "center",
   },
   title: {
     fontSize: 34,

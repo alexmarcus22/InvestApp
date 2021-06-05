@@ -1,16 +1,15 @@
 import React, { useState } from "react";
 import {
-  StyleSheet,
   Text,
   View,
   SafeAreaView,
   Image,
   TouchableHighlight,
 } from "react-native";
-import AppLoading from "expo-app-loading";
+import { styles } from "./cardLinkStyle";
 import images from "../../theme/images";
-import FontsLoading from "../fonts";
-import { styles } from "./CardLink.style";
+import FontsLoading from "../../theme/fonts";
+import AppLoading from "expo-app-loading";
 
 const CardLink = ({ item }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
@@ -28,10 +27,7 @@ const CardLink = ({ item }) => {
     <SafeAreaView style={styles.container}>
       <TouchableHighlight>
         <View style={styles.card}>
-          <Image
-            source={images.contact}
-            style={styles.imageCard}
-          />
+          <Image source={images.contact} style={styles.imageCard} />
           <Text style={styles.title}>{item.title}</Text>
         </View>
       </TouchableHighlight>

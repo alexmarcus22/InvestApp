@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  TouchableOpacity,
-  View,
-  TextInput,
-  StyleSheet,
-  Text,
-} from "react-native";
+import { View, TextInput, Text } from "react-native";
 import AppLoading from "expo-app-loading";
-import { styles } from "./ContactInput.style";
-import FontsLoading from "../fonts";
+import { styles } from "./contactInputStyle";
+import FontsLoading from "../../theme/fonts";
 
 const ContactInput = (props) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
@@ -26,9 +20,6 @@ const ContactInput = (props) => {
   return (
     <View style={styles.container}>
       <Text style={styles.label}>{label}</Text>
-      {/* <TouchableOpacity>
-        <Text>Change</Text>
-      </TouchableOpacity> */}
       <TextInput
         id={id}
         name="name"

@@ -1,16 +1,14 @@
 import React from "react";
-import { View, Text, StyleSheet, Image } from "react-native";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 import { HomePage } from "../screens/HomePage";
-import AssetsScreen from "../screens/Assets";
 import ProfileScreen from "../screens/Profile";
 import ProductScreen from "../screens/Product";
 import TranzitScreen from "../screens/Tranzit";
 
 const Tab = createBottomTabNavigator();
 
-const Navigation = ({ navigation }) => {
+const Navigation = () => {
   return (
     <Tab.Navigator
       tabBarOptions={{

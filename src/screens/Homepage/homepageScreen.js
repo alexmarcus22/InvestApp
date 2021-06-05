@@ -1,4 +1,5 @@
 import React from "react";
+import { homePageData, homePageNews } from "../../theme/mockData";
 import {
   View,
   Text,
@@ -8,16 +9,15 @@ import {
   ScrollView,
   TouchableHighlight,
 } from "react-native";
-import { styles } from "./Homepage.style";
-import Card from "../../components/Card/Card.component";
-import PlanComponent from "../../components/Plan/Plan.component";
-import NewsComponent from "../../components/News/News.component";
-import AppLoading from "expo-app-loading";
+import { styles } from "./homepageStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
-import { homePageData, homePageNews } from "../../theme/strings";
+import FontsLoading from "../../theme/fonts";
+import NewsComponent from "../../components/News/newsComponent";
+import PlanComponent from "../../components/Plan/planComponent";
+import Card from "../../components/Card/cardComponent";
+import AppLoading from "expo-app-loading";
 
-export const HomePage = ({ navigation }) => {
+export const HomePage = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

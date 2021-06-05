@@ -1,6 +1,6 @@
 import React from "react";
-import { Text, View, StyleSheet, TouchableOpacity, Image } from "react-native";
-import { styles } from "./Notification.style";
+import { Text, View, TouchableOpacity, Image } from "react-native";
+import { styles } from "./notificationStyle";
 
 const Notification = ({ item }) => {
   return (

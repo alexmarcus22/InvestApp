@@ -1,14 +1,8 @@
 import React, { useState } from "react";
-import {
-  StyleSheet,
-  TouchableOpacity,
-  TextInput,
-  View,
-  Button,
-} from "react-native";
-import FontsLoading from "../fonts";
+import { TouchableOpacity, TextInput, View, Button } from "react-native";
+import { styles } from "./signUpFormStyle";
 import AppLoading from "expo-app-loading";
-import { styles } from "./signUpForm.style";
+import FontsLoading from "../../theme/fonts";
 
 const SignupForm = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
@@ -31,7 +25,7 @@ const SignupForm = () => {
         id="name"
         name="name"
         type="name"
-        onChange={(text) => setFullName(text)}
+        onChange={setFullName}
         defaultValue={fullName}
         style={styles.input}
         placeholder="Fullname"
@@ -40,7 +34,7 @@ const SignupForm = () => {
         id="email"
         name="email"
         type="email"
-        onChange={(text) => setEmailAddress(text)}
+        onChange={setEmailAddress}
         defaultValue={emailAddress}
         style={styles.input}
         placeholder="Email"
@@ -49,7 +43,7 @@ const SignupForm = () => {
         id="password"
         name="password"
         type="password"
-        onChange={(text) => setPassword(text)}
+        onChange={setPassword}
         defaultValue={password}
         style={styles.input}
         placeholder="Password"

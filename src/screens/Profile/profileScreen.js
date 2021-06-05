@@ -1,6 +1,6 @@
-import React, { useState } from "react";
+import React from "react";
+import { profileData } from "../../theme/mockData";
 import {
-  StyleSheet,
   SafeAreaView,
   Image,
   Text,
@@ -9,14 +9,13 @@ import {
   TouchableHighlight,
   FlatList,
 } from "react-native";
-import AppLoading from "expo-app-loading";
-import CardLink from "../../components/CardLink/CardLink.component";
-import { styles } from "./Profile.style";
+import { styles } from "./profileStyle";
+import CardLink from "../../components/CardLink/cardLinkComponent";
 import images from "../../theme/images";
 import FontsLoading from "../../components/fonts";
-import { profileData } from "../../theme/strings";
+import AppLoading from "expo-app-loading";
 
-const ProfileScreen = ({ navigation }) => {
+const ProfileScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

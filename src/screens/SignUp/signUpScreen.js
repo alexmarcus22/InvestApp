@@ -1,11 +1,12 @@
-import AppLoading from "expo-app-loading";
-import React, { useEffect } from "react";
-import { StyleSheet, SafeAreaView, Image, Text, View } from "react-native";
+import React from "react";
+import { SafeAreaView, Image, Text, View } from "react-native";
+import { styles } from "./signUpStyle";
+import FontsLoading from "../../theme/fonts";
 import images from "../../theme/images";
-import ButtonComponent from "../../components/Button/Button.component";
-import { styles } from "./SignUp.style";
-import FontsLoading from "../../components/fonts";
-const SignUpScreen = ({ navigation }) => {
+import ButtonComponent from "../../components/Button/buttonComponent";
+import AppLoading from "expo-app-loading";
+
+const SignUpScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (
@@ -20,12 +21,7 @@ const SignUpScreen = ({ navigation }) => {
   return (
     <SafeAreaView style={styles.container}>
       <View>
-        <Image
-          style={styles.logo}
-          source={images.signup_logo}
-          resizeMode="contain"
-          alignSelf="center"
-        />
+        <Image style={styles.logo} source={images.signup_logo} />
         <Text style={styles.title}>Stay on top of your finance with us.</Text>
         <Text style={styles.description}>
           We are your new financial Advisors to recommed the best investments

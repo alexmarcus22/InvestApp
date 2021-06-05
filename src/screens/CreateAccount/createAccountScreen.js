@@ -1,19 +1,12 @@
 import React from "react";
-import {
-  SafeAreaView,
-  StyleSheet,
-  Text,
-  View,
-  Image,
-  ScrollView,
-} from "react-native";
-import AppLoading from "expo-app-loading";
-import SignupForm from "../../components/SignUpForm/signUpForm.component";
-import { styles } from "./CreateAccount.style";
+import { SafeAreaView, Text, View, Image, ScrollView } from "react-native";
+import { styles } from "./createAccountStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
+import FontsLoading from "../../components/SubmitButton/fonts";
+import SignupForm from "../../components/SignUpForm/signUpFormComponent";
+import AppLoading from "expo-app-loading";
 
-const CreateAccount = ({ navigation }) => {
+const CreateAccount = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   if (!dataLoaded) {
     return (

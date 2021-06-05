@@ -2,7 +2,6 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    position: "relative",
     height: "100%",
     marginBottom: 36,
   },
