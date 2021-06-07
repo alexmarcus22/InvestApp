@@ -2,9 +2,8 @@ import { StyleSheet } from "react-native";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 70,
-    paddingRight: 35,
-    paddingLeft: 35,
+    marginTop: 70,
+    marginHorizontal: 34,
     flexDirection: "column",
   },
   headerContainer: {
@@ -56,5 +55,7 @@ export const styles = StyleSheet.create({
   },
   goBack: {
     marginBottom: 10,
+    width: 20,
+    height: 20,
   },
 });

@@ -12,5 +12,6 @@ export const styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 14,
     lineHeight: 20,
+    overflow: "hidden",
   },
 });

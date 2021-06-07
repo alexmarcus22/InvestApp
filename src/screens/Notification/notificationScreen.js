@@ -11,8 +11,8 @@ import {
 import { styles } from "./notificationStyle";
 import images from "../../theme/images";
 import Notification from "../../components/Notification/notificationComponent";
-import FontsLoading from "../../components/SubmitButton/fonts";
 import AppLoading from "expo-app-loading";
+import FontsLoading from "../../theme/fonts";
 
 const NotificationScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();

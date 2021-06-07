@@ -3,6 +3,7 @@ import { TouchableOpacity, TextInput, View, Button } from "react-native";
 import { styles } from "./signUpFormStyle";
 import AppLoading from "expo-app-loading";
 import FontsLoading from "../../theme/fonts";
+import SubmitButton from "../SubmitButton/submitButtonComponent";
 
 const SignupForm = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
@@ -49,7 +50,7 @@ const SignupForm = () => {
         placeholder="Password"
       />
       <TouchableOpacity>
-        <Button type="submit" title="Create Account" />
+        <SubmitButton text="Create Account" />
       </TouchableOpacity>
     </View>
   );

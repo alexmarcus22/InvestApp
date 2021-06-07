@@ -12,5 +12,6 @@ export const styles = StyleSheet.create({
     width: "100%",
     fontSize: 17,
     fontFamily: "SFRegular",
+    overflow: "hidden",
   },
 });

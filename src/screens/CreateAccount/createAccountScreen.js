@@ -1,13 +1,22 @@
 import React from "react";
-import { SafeAreaView, Text, View, Image, ScrollView } from "react-native";
+import {
+  SafeAreaView,
+  Text,
+  View,
+  Image,
+  ScrollView,
+  TouchableOpacity,
+} from "react-native";
 import { styles } from "./createAccountStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../components/SubmitButton/fonts";
 import SignupForm from "../../components/SignUpForm/signUpFormComponent";
 import AppLoading from "expo-app-loading";
+import FontsLoading from "../../theme/fonts";
+import { useNavigation } from "@react-navigation/native";
 
 const CreateAccount = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -21,9 +30,12 @@ const CreateAccount = () => {
   return (
     <ScrollView>
       <SafeAreaView style={styles.container}>
-        <Text onPress={() => navigation.goBack()} style={styles.goBack}>
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.goBack}
+        >
           <Image source={images.back} style={styles.backImage} />
-        </Text>
+        </TouchableOpacity>
         <View style={styles.headerContainer}>
           <Text style={styles.title}>Create an account</Text>
           <Text style={styles.description}>
@@ -34,7 +46,7 @@ const CreateAccount = () => {
           <SignupForm />
           <Text
             style={styles.bottomText}
-            onPress={() => navigation.navigate("Sign Up")}
+            onPress={() => navigation.navigate("Home Page")}
           >
             Already have an account?
           </Text>

@@ -12,8 +12,8 @@ import {
 import { styles } from "./profileStyle";
 import CardLink from "../../components/CardLink/cardLinkComponent";
 import images from "../../theme/images";
-import FontsLoading from "../../components/fonts";
 import AppLoading from "expo-app-loading";
+import FontsLoading from "../../theme/fonts";
 
 const ProfileScreen = () => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
