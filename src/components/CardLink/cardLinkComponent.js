@@ -10,9 +10,11 @@ import { styles } from "./cardLinkStyle";
 import images from "../../theme/images";
 import FontsLoading from "../../theme/fonts";
 import AppLoading from "expo-app-loading";
+import { useNavigation } from "@react-navigation/native";
 
 const CardLink = ({ item }) => {
   const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
+  const navigation = useNavigation();
   if (!dataLoaded) {
     return (
       <AppLoading
@@ -25,7 +27,7 @@ const CardLink = ({ item }) => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableHighlight>
+      <TouchableHighlight onPress={() => navigation.navigate("Contact")}>
         <View style={styles.card}>
           <Image source={images.contact} style={styles.imageCard} />
           <Text style={styles.title}>{item.title}</Text>

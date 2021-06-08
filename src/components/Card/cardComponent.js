@@ -2,8 +2,10 @@ import React from "react";
 import { Text, View, Pressable, TouchableHighlight } from "react-native";
 import { LinearGradient } from "expo-linear-gradient";
 import { styles } from "./cardStyle";
+import { useNavigation } from "@react-navigation/native";
 
 const Card = ({ title, value, navigateTo }) => {
+  const navigation = useNavigation();
   return (
     <View>
       <LinearGradient colors={["#31A078", "#31A05F"]} style={styles.container}>

@@ -3,8 +3,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
 import routes from "../config/routes";
-import Profile from "../screens/Profile/profileScreen";
-import HomePage from "../screens/Homepage/homepageScreen";
+import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
@@ -18,12 +17,27 @@ const MainStackNavigator = () => {
       return null;
     }
     return (
-      <Tab.Navigator>
+      <Tab.Navigator
+        tabBarOptions={{
+          activeTintColor: "#31A063",
+          style: { borderTopWidth: 0, backgroundColor: "#F6F6F9" },
+        }}
+      >
         {result.map((item) => (
           <Tab.Screen
             name={item.name}
             component={item.component}
             key={item.order}
+            options={{
+              tabBarLabel: item.name,
+              tabBarIcon: ({ color, size }) => (
+                <MaterialCommunityIcons
+                  name={item.icon}
+                  color={color}
+                  size={size}
+                />
+              ),
+            }}
           />
         ))}
       </Tab.Navigator>
@@ -49,8 +63,8 @@ const MainStackNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="Home" component={TabNavigator} />
         {NavigationRender}
+        <Stack.Screen name="Homepage" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

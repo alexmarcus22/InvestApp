@@ -46,7 +46,7 @@ const CreateAccount = () => {
           <SignupForm />
           <Text
             style={styles.bottomText}
-            onPress={() => navigation.navigate("Home Page")}
+            onPress={() => navigation.navigate("Homepage")}
           >
             Already have an account?
           </Text>

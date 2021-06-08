@@ -5,6 +5,8 @@ import Assets from "../screens/Assets/assetsScreen";
 import Contact from "../screens/Contact/contactScreen";
 import BankAccount from "../screens/BankAccount/bankAccount";
 import Profile from "../screens/Profile/profileScreen";
+import ProductScreen from "../screens/Product/productScreen";
+import TransactionScreen from "../screens/Transaction/transactionScreen";
 
 const routes = [
   {
@@ -26,41 +28,61 @@ const routes = [
     component: Assets,
     name: "Assets",
     icon: "key",
-    order: 3,
-    isBottomTab: true,
+    order: 9,
+    isBottomTab: false,
     visibleBottomTab: true,
   },
   {
     component: HomePage,
-    name: "Homepage",
+    name: "Home",
     icon: "key",
     order: 3,
     isBottomTab: true,
     visibleBottomTab: true,
+    icon: "home",
   },
   {
     component: Contact,
     name: "Contact",
     icon: "key",
-    order: 3,
-    isBottomTab: true,
+    order: 7,
+    isBottomTab: false,
     visibleBottomTab: true,
   },
   {
     component: BankAccount,
     name: "Bank Account",
     icon: "key",
-    order: 3,
-    isBottomTab: true,
-    visibleBottomTab: true,
+    order: 8,
+    isBottomTab: false,
+    visibleBottomTab: false,
   },
   {
     component: Profile,
     name: "Profile",
     icon: "key",
-    order: 3,
+    order: 6,
     isBottomTab: true,
     visibleBottomTab: true,
+    icon: "account",
+  },
+  {
+    component: TransactionScreen,
+    name: "Transaction",
+    icon: "key",
+    order: 5,
+    isBottomTab: true,
+    visibleBottomTab: true,
+    icon: "cash-multiple",
+  },
+  {
+    component: ProductScreen,
+    name: "Product Screen",
+    icon: "key",
+    order: 4,
+    isBottomTab: true,
+    visibleBottomTab: true,
+    icon: "magnify",
   },
 ];
 export default routes;
