@@ -12,20 +12,8 @@ import {
 import { styles } from "./profileStyle";
 import CardLink from "../../components/CardLink/cardLinkComponent";
 import images from "../../theme/images";
-import AppLoading from "expo-app-loading";
-import FontsLoading from "../../theme/fonts";
 
 const ProfileScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
   return (
     <SafeAreaView>
       <ScrollView>
@@ -48,8 +36,15 @@ const ProfileScreen = () => {
             <FlatList
               data={profileData}
               numColumns={1}
+              keyExtractor={(item) => item.title}
               renderItem={(item) => {
-                return <CardLink {...item} />;
+                return (
+                  <CardLink
+                    {...item}
+                    pathToNavigate="Bank Account"
+                    key={item.index}
+                  />
+                );
               }}
             />
           </View>

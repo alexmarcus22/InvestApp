@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   bankContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: Colors.Transparent,
     marginBottom: 30,
     borderRadius: 20,
   },
@@ -33,7 +34,7 @@ export const styles = StyleSheet.create({
     color: Colors.darkGray,
     fontSize: 17,
     lineHeight: 16,
-    fontFamily: "SFRegular",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "600",
   },
   dotsContent: {

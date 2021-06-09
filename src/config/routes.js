@@ -10,17 +10,17 @@ import TransactionScreen from "../screens/Transaction/transactionScreen";
 
 const routes = [
   {
-    component: CreateAccount,
-    name: "Create Account",
-    order: 2,
-    isBottomTab: false,
-    visibleBottomTab: false,
-  },
-  {
     component: SignUp,
     name: "Sign Up",
     icon: "key",
     order: 1,
+    isBottomTab: false,
+    visibleBottomTab: false,
+  },
+  {
+    component: CreateAccount,
+    name: "Create Account",
+    order: 2,
     isBottomTab: false,
     visibleBottomTab: false,
   },
@@ -58,13 +58,13 @@ const routes = [
     visibleBottomTab: false,
   },
   {
-    component: Profile,
-    name: "Profile",
+    component: ProductScreen,
+    name: "Product Screen",
     icon: "key",
-    order: 6,
+    order: 4,
     isBottomTab: true,
     visibleBottomTab: true,
-    icon: "account",
+    icon: "magnify",
   },
   {
     component: TransactionScreen,
@@ -76,13 +76,13 @@ const routes = [
     icon: "cash-multiple",
   },
   {
-    component: ProductScreen,
-    name: "Product Screen",
+    component: Profile,
+    name: "Profile",
     icon: "key",
-    order: 4,
+    order: 6,
     isBottomTab: true,
     visibleBottomTab: true,
-    icon: "magnify",
+    icon: "account",
   },
 ];
 export default routes;

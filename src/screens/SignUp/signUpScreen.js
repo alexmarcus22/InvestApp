@@ -1,23 +1,9 @@
 import React from "react";
 import { SafeAreaView, Image, Text } from "react-native";
 import { styles } from "./signUpStyle";
-import FontsLoading from "../../theme/fonts";
 import images from "../../theme/images";
 import ButtonComponent from "../../components/Button/buttonComponent";
-import AppLoading from "expo-app-loading";
-
 const SignUpScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
-
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={images.signup_logo} />

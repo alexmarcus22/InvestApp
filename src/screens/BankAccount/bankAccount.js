@@ -9,45 +9,17 @@ import {
   ImageBackground,
 } from "react-native";
 import { styles } from "./bankAccountStyle";
-import FontsLoading from "../../theme/fonts";
 import images from "../../theme/images";
 import ButtonComponent from "../../components/Button/buttonComponent";
 import BankCard from "../../components/BankCard/bankCard";
-import AppLoading from "expo-app-loading";
+import GoBackButton from "../../components/GoBack/goBackButton";
 
 const BankAccountScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
-
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
   return (
     <SafeAreaView style={styles.outerContainer}>
       <View style={styles.innerContainer}>
+        <GoBackButton />
         <View style={styles.headerContainer}>
-          <TouchableOpacity>
-            <ImageBackground
-              style={styles.close}
-              source={images.back}
-              resizeMode="contain"
-              alignSelf="center"
-            />
-          </TouchableOpacity>
           <Text style={styles.headerTitle}>Bank of account info</Text>
         </View>
         <FlatList
@@ -58,7 +30,7 @@ const BankAccountScreen = () => {
         />
         <View>
           <ButtonComponent
-            title="Create Account"
+            title="Add Account"
             pathToNavigate="Create Account"
           />
         </View>

@@ -11,20 +11,8 @@ import {
 import { styles } from "./notificationStyle";
 import images from "../../theme/images";
 import Notification from "../../components/Notification/notificationComponent";
-import AppLoading from "expo-app-loading";
-import FontsLoading from "../../theme/fonts";
 
 const NotificationScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
   return (
     <SafeAreaView style={styles.outerContainer}>
       <View style={styles.innerContainer}>

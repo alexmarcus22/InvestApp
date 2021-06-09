@@ -7,6 +7,10 @@ import Colors from "../../theme/colors";
 
 const Card = ({ title, value, navigateTo }) => {
   const navigation = useNavigation();
+
+  const navigate = () => {
+    navigation.navigate(navigateTo);
+  };
   return (
     <View>
       <LinearGradient
@@ -16,7 +20,7 @@ const Card = ({ title, value, navigateTo }) => {
         <Text style={styles.title}>{title}</Text>
         <Text style={styles.number}>{value}</Text>
         <Pressable style={styles.button} title="Invest">
-          <TouchableHighlight onPress={() => navigation.navigate(navigateTo)}>
+          <TouchableHighlight onPress={navigate}>
             <Text>Invest</Text>
           </TouchableHighlight>
         </Pressable>

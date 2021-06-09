@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
@@ -27,7 +28,7 @@ export const styles = StyleSheet.create({
     height: 24,
   },
   headerTitle: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "400",
     fontSize: 22,
   },
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
   },
   titleContent: {
     fontSize: 16,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "300",
     color: Colors.Gray,
     marginBottom: 8,
@@ -44,7 +45,7 @@ export const styles = StyleSheet.create({
   valueContainer: { flexDirection: "row", alignItems: "center" },
   valueContent: {
     fontSize: 32,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "600",
   },
   vote: {
@@ -67,7 +68,7 @@ export const styles = StyleSheet.create({
     lineHeight: 28,
     marginBottom: 20,
     fontWeight: "bold",
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
   },
   imageContainer: {
     width: "100%",
@@ -84,7 +85,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 24,
     letterSpacing: 0.8,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "700",
   },
   imagePlansSubTitle: {
@@ -106,7 +107,7 @@ export const styles = StyleSheet.create({
     marginBottom: 10,
     paddingBottom: 15,
     borderBottomWidth: 1,
-    borderBottomColor: "#E7E7E7",
+    borderBottomColor: Colors.Gray,
   },
   historyTitle: {
     fontSize: 22,
@@ -115,7 +116,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   historyItemTitle: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontSize: 18,
     fontWeight: "bold",
     lineHeight: 28,
