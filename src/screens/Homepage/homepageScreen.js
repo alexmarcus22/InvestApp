@@ -50,7 +50,7 @@ export const HomePage = () => {
               <Card
                 title="Your total assets portofolio"
                 value="N203,935"
-                navigateTo="Assets Screen"
+                navigateTo="Assets"
               ></Card>
               <View style={styles.plans}>
                 <View style={styles.headerContainer}>

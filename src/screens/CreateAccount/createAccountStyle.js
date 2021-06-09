@@ -1,10 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 70,
-    paddingRight: 35,
-    paddingLeft: 35,
+    marginTop: 70,
+    marginHorizontal: 34,
     flexDirection: "column",
   },
   headerContainer: {
@@ -22,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#828282",
+    borderColor: Colors.InputBorder,
     borderRadius: 20,
     paddingTop: 20,
     paddingBottom: 20,
@@ -48,7 +48,7 @@ export const styles = StyleSheet.create({
     fontFamily: "SFLight",
   },
   bottomText: {
-    color: "#31A062",
+    color: Colors.darkGreen,
     fontSize: 17,
     textAlign: "center",
     marginTop: 44,
@@ -56,5 +56,7 @@ export const styles = StyleSheet.create({
   },
   goBack: {
     marginBottom: 10,
+    width: 20,
+    height: 20,
   },
 });

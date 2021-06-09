@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -37,7 +38,7 @@ export const styles = StyleSheet.create({
     fontSize: 16,
     fontFamily: "SFMedium",
     fontWeight: "300",
-    color: "#B2B2B2",
+    color: Colors.Gray,
     marginBottom: 8,
   },
   valueContainer: { flexDirection: "row", alignItems: "center" },
@@ -55,7 +56,7 @@ export const styles = StyleSheet.create({
   },
   valuePercent: {
     fontSize: 11,
-    color: "#00B907",
+    color: Colors.Green,
   },
   currentPlans: {
     marginTop: 13,
@@ -96,7 +97,7 @@ export const styles = StyleSheet.create({
     lineHeight: 28,
     fontWeight: "600",
     fontSize: 18,
-    color: "#FE555D",
+    color: Colors.Red,
     textAlign: "center",
   },
   historyItem: {
@@ -119,6 +120,6 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     lineHeight: 28,
   },
-  historyItemDate: { color: "#B2B2B2" },
-  historyItemSubTitle: { color: "#B2B2B2" },
+  historyItemDate: { color: Colors.Gray },
+  historyItemSubTitle: { color: Colors.Gray },
 });

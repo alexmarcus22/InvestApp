@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   item: {
@@ -66,7 +67,7 @@ export const styles = StyleSheet.create({
     fontSize: 18,
     lineHeight: 28,
     fontWeight: "700",
-    color: "#FE555D",
+    color: Colors.Red,
     letterSpacing: 0.8,
   },
 });

@@ -28,8 +28,8 @@ const AssetsScreen = () => {
     );
   }
   return (
-    <ScrollView>
-      <SafeAreaView>
+    <SafeAreaView>
+      <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
             <View style={styles.row1}>
@@ -83,8 +83,8 @@ const AssetsScreen = () => {
             />
           </View>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 
