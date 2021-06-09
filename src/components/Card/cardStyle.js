@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -10,13 +11,13 @@ export const styles = StyleSheet.create({
   },
   title: {
     fontSize: 14,
-    color: "white",
+    color: Colors.White,
     marginBottom: 11,
     lineHeight: 20,
   },
   number: {
     fontSize: 32,
-    color: "white",
+    color: Colors.White,
     lineHeight: 37,
   },
   button: {

@@ -1,5 +1,5 @@
 import React from "react";
-import { SafeAreaView, Image, Text, View } from "react-native";
+import { SafeAreaView, Image, Text } from "react-native";
 import { styles } from "./signUpStyle";
 import FontsLoading from "../../theme/fonts";
 import images from "../../theme/images";

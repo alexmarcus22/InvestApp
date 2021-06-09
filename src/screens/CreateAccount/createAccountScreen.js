@@ -28,8 +28,8 @@ const CreateAccount = () => {
   }
 
   return (
-    <ScrollView>
-      <SafeAreaView style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <ScrollView>
         <TouchableOpacity
           onPress={() => navigation.goBack()}
           style={styles.goBack}
@@ -51,8 +51,8 @@ const CreateAccount = () => {
             Already have an account?
           </Text>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

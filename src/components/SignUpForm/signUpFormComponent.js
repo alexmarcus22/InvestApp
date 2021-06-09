@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { TouchableOpacity, TextInput, View, Button } from "react-native";
+import { TouchableOpacity, TextInput, View } from "react-native";
 import { styles } from "./signUpFormStyle";
 import AppLoading from "expo-app-loading";
 import FontsLoading from "../../theme/fonts";

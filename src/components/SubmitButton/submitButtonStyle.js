@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   submitButton: {
     textAlign: "center",
     borderWidth: 0,
-    backgroundColor: "#31A062",
+    backgroundColor: Colors.darkGreen,
     borderRadius: 20,
-    color: "white",
+    color: Colors.White,
     paddingTop: 20,
     paddingBottom: 20,
     width: "100%",

@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -8,19 +9,18 @@ export const styles = StyleSheet.create({
   card: {
     paddingHorizontal: 20,
     paddingVertical: 22,
-    backgroundColor: "white",
+    backgroundColor: Colors.White,
     borderRadius: 4,
     flexDirection: "row",
     alignItems: "center",
     shadowOffset: { width: 5, height: 10 },
-    shadowColor: "black",
+    shadowColor: Colors.Black,
     shadowOpacity: 0.04,
   },
   title: {
     fontSize: 17,
-    color: "black",
+    color: Colors.Black,
     lineHeight: 16,
-    color: "#333333",
     marginLeft: 36,
     fontFamily: "SFMedium",
     fontWeight: "bold",

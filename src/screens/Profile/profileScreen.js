@@ -27,8 +27,8 @@ const ProfileScreen = () => {
     );
   }
   return (
-    <ScrollView>
-      <SafeAreaView>
+    <SafeAreaView>
+      <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
             <TouchableHighlight>
@@ -54,8 +54,8 @@ const ProfileScreen = () => {
             />
           </View>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

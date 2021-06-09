@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -21,7 +22,7 @@ export const styles = StyleSheet.create({
   },
   input: {
     borderWidth: 1,
-    borderColor: "#828282",
+    borderColor: Colors.InputBorder,
     borderRadius: 20,
     paddingTop: 20,
     paddingBottom: 20,
@@ -47,7 +48,7 @@ export const styles = StyleSheet.create({
     fontFamily: "SFLight",
   },
   bottomText: {
-    color: "#31A062",
+    color: Colors.darkGreen,
     fontSize: 17,
     textAlign: "center",
     marginTop: 44,

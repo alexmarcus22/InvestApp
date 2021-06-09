@@ -1,9 +1,9 @@
-import * as React from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
 import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import routes from "../config/routes";
 import MaterialCommunityIcons from "react-native-vector-icons/MaterialCommunityIcons";
+import routes from "../config/routes";
 
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();

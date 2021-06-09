@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   container: {
@@ -34,6 +35,6 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     paddingTop: 10,
     paddingBottom: 10,
-    color: "#31A062",
+    color: Colors.darkGreen,
   },
 });

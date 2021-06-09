@@ -1,14 +1,15 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   button: {
-    borderColor: "red",
+    borderColor: Colors.Red,
     textAlign: "center",
-    backgroundColor: "#31A062",
+    backgroundColor: Colors.darkGreen,
     borderRadius: 20,
     width: "100%",
     alignSelf: "stretch",
-    color: "white",
+    color: Colors.White,
     paddingTop: 14,
     paddingBottom: 14,
     lineHeight: 20,
