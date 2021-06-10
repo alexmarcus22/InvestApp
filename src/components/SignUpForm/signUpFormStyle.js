@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
-    borderColor: "#828282",
+    borderColor: Colors.InputBorder,
     borderRadius: 20,
     paddingTop: 20,
     paddingBottom: 20,

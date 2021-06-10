@@ -4,7 +4,7 @@ import Colors from "../../theme/colors";
 export const styles = StyleSheet.create({
   item: {
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.5)",
+    borderBottomColor: Colors.Black,
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 40,

@@ -11,24 +11,11 @@ import {
 } from "react-native";
 import { styles } from "./homepageStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../theme/fonts";
 import NewsComponent from "../../components/News/newsComponent";
 import PlanComponent from "../../components/Plan/planComponent";
 import Card from "../../components/Card/cardComponent";
-import AppLoading from "expo-app-loading";
 
 export const HomePage = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
-
   return (
     <ScrollView>
       <SafeAreaView>

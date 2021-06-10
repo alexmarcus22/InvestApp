@@ -4,7 +4,7 @@ import Colors from "../../theme/colors";
 export const styles = StyleSheet.create({
   item: {
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(74,74,74, 0.2)",
+    borderBottomColor: Colors.Black,
   },
   title: {
     fontSize: 18,

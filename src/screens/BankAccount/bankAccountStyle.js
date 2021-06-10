@@ -1,9 +1,11 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   outerContainer: {
     height: "100%",
-    backgroundColor: "#F6F6F9",
+    backgroundColor: Colors.backgroundColor,
   },
   innerContainer: {
     paddingHorizontal: 30,
@@ -21,7 +23,7 @@ export const styles = StyleSheet.create({
     height: 12,
   },
   headerTitle: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "400",
     fontSize: 22,
     flex: 11,

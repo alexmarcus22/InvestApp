@@ -1,17 +1,19 @@
 import React from "react";
 import { useNavigation } from "@react-navigation/native";
-import { Text } from "react-native";
+import { Text, TouchableOpacity } from "react-native";
 import { styles } from "./buttonStyle";
 
 const ButtonComponent = ({ title, pathToNavigate }) => {
   const navigation = useNavigation();
+
+  const navigate = () => {
+    navigation.navigate(pathToNavigate);
+  };
+
   return (
-    <Text
-      style={styles.button}
-      onPress={() => navigation.navigate(pathToNavigate)}
-    >
-      {title}
-    </Text>
+    <TouchableOpacity style={styles.button} onPress={navigate} onP>
+      <Text style={styles.text}>{title}</Text>
+    </TouchableOpacity>
   );
 };
 

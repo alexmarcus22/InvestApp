@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Fonts from "../../theme/fonts";
 import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
     paddingBottom: 20,
     width: "100%",
     fontSize: 17,
-    fontFamily: "SFRegular",
+    fontFamily: Fonts.SFDisplay,
     overflow: "hidden",
   },
 });

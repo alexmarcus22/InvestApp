@@ -10,6 +10,8 @@ const Colors = {
   Gray: "#B2B2B2",
   darkGray: "#555555",
   InputBorder: "#828282",
+  backgroundColor: "#F8F8F9",
+  Transparent: "transparent",
 };
 
 export default Colors;

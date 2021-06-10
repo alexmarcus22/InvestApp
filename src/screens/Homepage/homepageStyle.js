@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   item: {
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 28,
     fontWeight: "400",
-    fontFamily: "SFBlack",
+    fontFamily: Fonts.SFDisplay,
   },
   row1: { flexDirection: "row" },
   hamburger: {
@@ -47,7 +48,7 @@ export const styles = StyleSheet.create({
     lineHeight: 44,
     fontWeight: "400",
     marginBottom: 30,
-    fontFamily: "SFBlack",
+    fontFamily: Fonts.SFDisplay,
   },
   mainContainer: {
     flex: 8,
@@ -61,7 +62,7 @@ export const styles = StyleSheet.create({
     fontSize: 22,
     lineHeight: 28,
     fontWeight: "700",
-    fontFamily: "SFBlack",
+    fontFamily: Fonts.SFDisplay,
   },
   plansSeeAll: {
     fontSize: 18,

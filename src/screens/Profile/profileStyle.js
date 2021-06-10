@@ -1,10 +1,12 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
     paddingVertical: 60,
     paddingHorizontal: 30,
-    backgroundColor: "#F6F6F9",
+    backgroundColor: Colors.backgroundColor,
   },
   headerContainer: {
     paddingBottom: 29,
@@ -15,7 +17,7 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
   },
   headerText: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontSize: 34,
     lineHeight: 44,
   },
@@ -31,7 +33,7 @@ export const styles = StyleSheet.create({
     marginBottom: 20,
   },
   name: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontSize: 22,
   },
   job: {

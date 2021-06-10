@@ -23,7 +23,7 @@ export const styles = StyleSheet.create({
   button: {
     alignItems: "center",
     justifyContent: "center",
-    backgroundColor: "#FEFFFE",
+    backgroundColor: Colors.backgroundColor,
     paddingTop: 10,
     paddingBottom: 10,
     paddingLeft: 25,

@@ -1,57 +1,31 @@
 import React from "react";
-import {
-  SafeAreaView,
-  Text,
-  View,
-  Image,
-  ScrollView,
-  TouchableOpacity,
-} from "react-native";
-import { styles } from "./createAccountStyle";
-import images from "../../theme/images";
-import SignupForm from "../../components/SignUpForm/signUpFormComponent";
-import AppLoading from "expo-app-loading";
-import FontsLoading from "../../theme/fonts";
+import { SafeAreaView, Text, View, Image } from "react-native";
 import { useNavigation } from "@react-navigation/native";
+import { styles } from "./createAccountStyle";
+import SignupForm from "../../components/SignUpForm/signUpFormComponent";
+import GoBackButton from "../../components/GoBack/goBackButton";
 
 const CreateAccount = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
   const navigation = useNavigation();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
 
+  const navigate = () => {
+    navigation.navigate("Homepage");
+  };
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <TouchableOpacity
-          onPress={() => navigation.goBack()}
-          style={styles.goBack}
-        >
-          <Image source={images.back} style={styles.backImage} />
-        </TouchableOpacity>
-        <View style={styles.headerContainer}>
-          <Text style={styles.title}>Create an account</Text>
-          <Text style={styles.description}>
-            Invest and double your income now
-          </Text>
-        </View>
-        <View style={styles.inputsContainer}>
-          <SignupForm />
-          <Text
-            style={styles.bottomText}
-            onPress={() => navigation.navigate("Homepage")}
-          >
-            Already have an account?
-          </Text>
-        </View>
-      </ScrollView>
+      <GoBackButton />
+      <View style={styles.headerContainer}>
+        <Text style={styles.title}>Create an account</Text>
+        <Text style={styles.description}>
+          Invest and double your income now
+        </Text>
+      </View>
+      <View style={styles.inputsContainer}>
+        <SignupForm />
+        <Text style={styles.bottomText} onPress={navigate}>
+          Already have an account?
+        </Text>
+      </View>
     </SafeAreaView>
   );
 };

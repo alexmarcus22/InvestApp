@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "transparent",
+    backgroundColor: Colors.Transparent,
     marginBottom: 20,
   },
   card: {
@@ -22,7 +23,7 @@ export const styles = StyleSheet.create({
     color: Colors.Black,
     lineHeight: 16,
     marginLeft: 36,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "bold",
   },
   imageCard: {

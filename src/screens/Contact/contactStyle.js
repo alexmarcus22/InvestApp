@@ -1,12 +1,13 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
-  outerContainer: { backgroundColor: "#F8F8F9", height: "100%" },
+  outerContainer: { backgroundColor: Colors.backgroundColor, height: "100%" },
   innerContainer: {
     paddingHorizontal: 30,
     paddingVertical: 63,
     height: "100%",
-    backgroundColor: "#F6F6F9",
   },
   headerContainer: {
     flexDirection: "row",
@@ -24,7 +25,7 @@ export const styles = StyleSheet.create({
     height: 12,
   },
   headerTitle: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontweight: "400",
     fontSize: 22,
     flex: 11,

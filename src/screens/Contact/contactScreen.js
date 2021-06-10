@@ -12,20 +12,8 @@ import {
 import { styles } from "./contactStyle";
 import images from "../../theme/images";
 import ContactInput from "../../components/ContactInput/contactInputComponent";
-import AppLoading from "expo-app-loading";
-import FontsLoading from "../../theme/fonts";
 
 const ContactScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
   return (
     <SafeAreaView style={styles.outerContainer}>
       <View style={styles.innerContainer}>

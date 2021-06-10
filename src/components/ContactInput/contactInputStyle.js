@@ -1,5 +1,6 @@
 import { StyleSheet } from "react-native";
 import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
@@ -11,7 +12,7 @@ export const styles = StyleSheet.create({
     borderTopWidth: 0,
     borderBottomWidth: 1,
     lineHeight: 25,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     opacity: 1,
     color: Colors.Black,
     placeholderTextColor: Colors.Black,
