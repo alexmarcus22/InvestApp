@@ -1,9 +1,10 @@
 import React from "react";
+import { connect } from "react-redux";
 import { SafeAreaView, Image, Text } from "react-native";
 import { styles } from "./signUpStyle";
 import images from "../../theme/images";
 import ButtonComponent from "../../components/Button/buttonComponent";
-const SignUpScreen = () => {
+const SignUpScreen = (props) => {
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={images.signup_logo} />
@@ -18,4 +19,8 @@ const SignUpScreen = () => {
   );
 };
 
-export default SignUpScreen;
+const mapStateToProps = (state) => state;
+const mapDispatch = (dispatch) => ({});
+const connectComponent = connect(mapStateToProps, mapDispatch);
+
+export default connectComponent(SignUpScreen);

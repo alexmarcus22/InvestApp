@@ -1,46 +1,58 @@
-import React, { useState } from "react";
-import { TouchableOpacity, TextInput, View } from "react-native";
-import { styles } from "./signUpFormStyle";
-import SubmitButton from "../SubmitButton/submitButtonComponent";
+import React from "react";
+import { TouchableOpacity, View, Button } from "react-native";
+import TextInput from "../TextInput/textInput";
+import { Field, reduxForm, Form } from "redux-form";
 
-const SignupForm = () => {
-  const [fullName, setFullName] = useState("");
-  const [emailAddress, setEmailAddress] = useState("");
-  const [password, setPassword] = useState("");
+const SignupForm = (props) => {
+  const { handleSubmit } = props;
+
+  const onSubmit = (values) => console.log(values);
+
+  const renderField = ({
+    placeholder,
+    name,
+    type,
+    input: { onChange, ...input },
+    secureTextEntry: secureTextEntry,
+  }) => (
+    <TextInput
+      type={type}
+      name={name}
+      placeholder={placeholder}
+      secureText={secureTextEntry}
+      {...input}
+      onChangeText={onChange}
+    />
+  );
+
   return (
     <View>
-      <TextInput
-        id="name"
+      <Field
         name="name"
-        type="name"
-        onChange={setFullName}
-        defaultValue={fullName}
-        style={styles.input}
-        placeholder="Fullname"
+        type="text"
+        component={renderField}
+        placeholder="Your name"
       />
-      <TextInput
-        id="email"
+      <Field
         name="email"
         type="email"
-        onChange={setEmailAddress}
-        defaultValue={emailAddress}
-        style={styles.input}
+        component={renderField}
         placeholder="Email"
       />
-      <TextInput
-        id="password"
+      <Field
         name="password"
         type="password"
-        onChange={setPassword}
-        defaultValue={password}
-        style={styles.input}
+        component={renderField}
         placeholder="Password"
+        props={{
+          secureTextEntry: true,
+        }}
       />
       <TouchableOpacity>
-        <SubmitButton text="Create Account" />
+        <Button title={"Submit"} onPress={handleSubmit(onSubmit)} />
       </TouchableOpacity>
     </View>
   );
 };
 
-export default SignupForm;
+export default reduxForm({ form: "test-form" })(SignupForm);

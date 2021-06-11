@@ -1,9 +1,11 @@
 import React from "react";
 import { SafeAreaView, Text, View, Image } from "react-native";
+import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./createAccountStyle";
 import SignupForm from "../../components/SignUpForm/signUpFormComponent";
 import GoBackButton from "../../components/GoBack/goBackButton";
+import StateViewer from "../../Redux/stateViewer";
 
 const CreateAccount = () => {
   const navigation = useNavigation();
@@ -22,6 +24,7 @@ const CreateAccount = () => {
       </View>
       <View style={styles.inputsContainer}>
         <SignupForm />
+        <StateViewer />
         <Text style={styles.bottomText} onPress={navigate}>
           Already have an account?
         </Text>
@@ -30,4 +33,8 @@ const CreateAccount = () => {
   );
 };
 
-export default CreateAccount;
+const mapStateToProps = (state) => state;
+const mapDispatch = (dispatch) => ({});
+const connectComponent = connect(mapStateToProps, mapDispatch);
+
+export default connectComponent(CreateAccount);

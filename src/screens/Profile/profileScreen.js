@@ -6,12 +6,12 @@ import {
   Text,
   View,
   ScrollView,
-  TouchableHighlight,
   FlatList,
 } from "react-native";
 import { styles } from "./profileStyle";
 import CardLink from "../../components/CardLink/cardLinkComponent";
 import images from "../../theme/images";
+import GoBack from "../../components/GoBack/goBackButton";
 
 const ProfileScreen = () => {
   return (
@@ -19,9 +19,7 @@ const ProfileScreen = () => {
       <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
-            <TouchableHighlight>
-              <Image source={images.back} style={styles.backImage} />
-            </TouchableHighlight>
+            <GoBack />
             <Text style={styles.headerText}>Profile</Text>
           </View>
           <View style={styles.profile}>
