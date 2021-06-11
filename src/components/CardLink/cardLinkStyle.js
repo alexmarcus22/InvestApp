@@ -1,28 +1,29 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    backgroundColor: "transparent",
+    backgroundColor: Colors.Transparent,
     marginBottom: 20,
   },
   card: {
     paddingHorizontal: 20,
     paddingVertical: 22,
-    backgroundColor: "white",
+    backgroundColor: Colors.White,
     borderRadius: 4,
     flexDirection: "row",
     alignItems: "center",
     shadowOffset: { width: 5, height: 10 },
-    shadowColor: "black",
+    shadowColor: Colors.Black,
     shadowOpacity: 0.04,
   },
   title: {
     fontSize: 17,
-    color: "black",
+    color: Colors.Black,
     lineHeight: 16,
-    color: "#333333",
     marginLeft: 36,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "bold",
   },
   imageCard: {

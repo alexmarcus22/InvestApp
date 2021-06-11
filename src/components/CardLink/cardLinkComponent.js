@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Text,
   View,
@@ -8,24 +8,18 @@ import {
 } from "react-native";
 import { styles } from "./cardLinkStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../theme/fonts";
-import AppLoading from "expo-app-loading";
+import { useNavigation } from "@react-navigation/native";
 
-const CardLink = ({ item }) => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
+const CardLink = ({ item, pathToNavigate }) => {
+  const navigation = useNavigation();
+
+  const navigate = () => {
+    navigation.navigate(pathToNavigate);
+  };
 
   return (
     <SafeAreaView style={styles.container}>
-      <TouchableHighlight>
+      <TouchableHighlight onPress={navigate}>
         <View style={styles.card}>
           <Image source={images.contact} style={styles.imageCard} />
           <Text style={styles.title}>{item.title}</Text>

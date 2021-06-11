@@ -13,23 +13,11 @@ import {
 } from "react-native";
 import { styles } from "./assetsStyle";
 import images from "../../theme/images";
-import FontsLoading from "../../theme/fonts";
-import AppLoading from "expo-app-loading";
 
 const AssetsScreen = () => {
-  const { dataLoaded, fetchFonts, setDataLoaded } = FontsLoading();
-  if (!dataLoaded) {
-    return (
-      <AppLoading
-        startAsync={fetchFonts}
-        onFinish={() => setDataLoaded(true)}
-        onError={console.warn}
-      />
-    );
-  }
   return (
-    <ScrollView>
-      <SafeAreaView>
+    <SafeAreaView>
+      <ScrollView>
         <View style={styles.container}>
           <View style={styles.headerContainer}>
             <View style={styles.row1}>
@@ -83,8 +71,8 @@ const AssetsScreen = () => {
             />
           </View>
         </View>
-      </SafeAreaView>
-    </ScrollView>
+      </ScrollView>
+    </SafeAreaView>
   );
 };
 

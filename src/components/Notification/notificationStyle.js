@@ -1,9 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   item: {
     borderBottomWidth: 1,
-    borderBottomColor: "rgba(0, 0, 0, 0.5)",
+    borderBottomColor: Colors.Black,
     flexDirection: "row",
     alignItems: "center",
     marginBottom: 40,
@@ -12,7 +13,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     lineHeight: 20,
-    color: "#474747",
+    color: Colors.Text,
     paddingBottom: 20,
     paddingTop: 8,
     paddingRight: 30,
@@ -22,7 +23,7 @@ export const styles = StyleSheet.create({
     fontSize: 14,
     lineHeight: 22,
     maxWidth: 260,
-    color: "#474747",
+    color: Colors.Text,
     letterSpacing: 0.8,
   },
   imageContainer: {
@@ -36,7 +37,7 @@ export const styles = StyleSheet.create({
     position: "absolute",
     right: 0,
     top: 0,
-    color: "black",
+    color: Colors.Black,
     opacity: 0.6,
   },
 });

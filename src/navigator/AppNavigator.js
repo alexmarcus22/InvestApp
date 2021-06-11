@@ -1,13 +1,23 @@
-import * as React from "react";
+import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
-import SignUpScreen from "../screens/SignUp/signUpScreen";
-
-const Stack = createStackNavigator();
-const Tab = createBottomTabNavigator();
+import routes from "../config/routes";
+import TabNavigator from "./TabNavigator";
 
 const MainStackNavigator = () => {
+  const Stack = createStackNavigator();
+  const NavigationRender = routes.map((item) => {
+    return (
+      <Stack.Screen
+        name={item.name}
+        component={item.component}
+        key={item.order}
+      />
+    );
+  });
+
+  if (routes.length === 0) return null;
+
   return (
     <NavigationContainer>
       <Stack.Navigator
@@ -15,7 +25,8 @@ const MainStackNavigator = () => {
           headerShown: false,
         }}
       >
-        <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
+        {NavigationRender}
+        <Stack.Screen name="Homepage" component={TabNavigator} />
       </Stack.Navigator>
     </NavigationContainer>
   );

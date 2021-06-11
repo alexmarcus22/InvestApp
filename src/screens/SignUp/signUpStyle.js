@@ -1,14 +1,13 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: "center",
     justifyContent: "center",
-    width: "100%",
     alignItems: "center",
-    paddingLeft: 34,
-    paddingRight: 34,
+    marginHorizontal: 34,
   },
   logo: {
     width: 300,
@@ -19,7 +18,7 @@ export const styles = StyleSheet.create({
     fontWeight: "bold",
     textAlign: "center",
     marginBottom: 11,
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay,
     lineHeight: 44,
     paddingHorizontal: 15,
   },
@@ -29,14 +28,15 @@ export const styles = StyleSheet.create({
     fontSize: 17,
     lineHeight: 22,
     textAlign: "center",
-    fontFamily: "SFLight",
-    fontWeight: "400",
+    fontFamily: Fonts.SFDisplay,
+    fontWeight: "300",
     marginBottom: 100,
   },
   noBackgroundText: {
     textAlign: "center",
     paddingTop: 10,
     paddingBottom: 10,
-    color: "#31A062",
+    color: Colors.darkGreen,
+    fontFamily: Fonts.SFDisplay,
   },
 });

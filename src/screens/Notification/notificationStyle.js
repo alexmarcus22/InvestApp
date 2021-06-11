@@ -1,7 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
-  outerContainer: { backgroundColor: "#F8F8F9", height: "100%" },
+  outerContainer: { 
+    backgroundColor: Colors.backgroundColor, 
+    height: "100%" },
   innerContainer: {
     paddingHorizontal: 30,
     paddingVertical: 63,
@@ -15,7 +18,7 @@ export const styles = StyleSheet.create({
     marginBottom: 24,
   },
   headerText: {
-    fontFamily: "SFMedium",
+    fontFamily: Fonts.SFDisplay
     fontSize: 34,
     lineHeight: 44,
   },

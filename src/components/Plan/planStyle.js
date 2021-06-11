@@ -1,4 +1,5 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
 
 export const styles = StyleSheet.create({
   item: {
@@ -11,7 +12,7 @@ export const styles = StyleSheet.create({
   title: {
     fontSize: 17,
     lineHeight: 24,
-    color: "white",
+    color: Colors.White,
   },
   subtitle: {
     fontSize: 13,

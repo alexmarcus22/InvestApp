@@ -1,8 +1,10 @@
 import { StyleSheet } from "react-native";
+import Colors from "../../theme/colors";
+import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   bankContainer: {
-    backgroundColor: "transparent",
+    backgroundColor: Colors.Transparent,
     marginBottom: 30,
     borderRadius: 20,
   },
@@ -13,10 +15,10 @@ export const styles = StyleSheet.create({
     alignItems: "center",
     paddingVertical: 32,
     margin: 6,
-    backgroundColor: "white",
+    backgroundColor: Colors.White,
     borderRadius: 20,
     shadowOffset: { width: 0, height: 6 },
-    shadowColor: "black",
+    shadowColor: Colors.Black,
     shadowOpacity: 0.14,
     shadowRadius: 5,
     elevation: 7,
@@ -29,10 +31,10 @@ export const styles = StyleSheet.create({
     flex: 10,
   },
   bankTitle: {
-    color: "#555555",
+    color: Colors.darkGray,
     fontSize: 17,
     lineHeight: 16,
-    fontFamily: "SFRegular",
+    fontFamily: Fonts.SFDisplay,
     fontWeight: "600",
   },
   dotsContent: {
