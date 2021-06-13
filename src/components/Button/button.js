@@ -9,7 +9,7 @@ const ButtonComponent = ({ title, pathToNavigate }) => {
   const navigate = () => {
     navigation.navigate(pathToNavigate);
   };
-
+  
   return (
     <TouchableOpacity style={styles.button} onPress={navigate} onP>
       <Text style={styles.text}>{title}</Text>

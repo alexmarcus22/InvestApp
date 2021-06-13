@@ -1,7 +1,8 @@
 import React from "react";
-import { TouchableOpacity, View, Button } from "react-native";
+import { View } from "react-native";
 import TextInput from "../TextInput/textInput";
-import { Field, reduxForm, Form } from "redux-form";
+import { Field, reduxForm } from "redux-form";
+import SubmitButtonComponent from "../SubmitButton/submitButtonComponent";
 
 const SignupForm = (props) => {
   const { handleSubmit } = props;
@@ -48,9 +49,7 @@ const SignupForm = (props) => {
           secureTextEntry: true,
         }}
       />
-      <TouchableOpacity>
-        <Button title={"Submit"} onPress={handleSubmit(onSubmit)} />
-      </TouchableOpacity>
+      <SubmitButtonComponent title="Submit" onSubmit={handleSubmit(onSubmit)} />
     </View>
   );
 };

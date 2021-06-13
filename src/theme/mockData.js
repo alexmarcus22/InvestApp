@@ -147,3 +147,7 @@ export const notificationData = [
     bg: images.cover3,
   },
 ];
+
+// export default mockData = () => {
+//   return 1;
+// };

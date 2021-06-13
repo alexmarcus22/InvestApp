@@ -1,10 +1,15 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { SafeAreaView, Image, Text } from "react-native";
 import { styles } from "./signUpStyle";
 import images from "../../theme/images";
-import ButtonComponent from "../../components/Button/buttonComponent";
-const SignUpScreen = (props) => {
+import ButtonComponent from "../../components/Button/button";
+import { fetchData } from "../../Redux/actions/data";
+const SignUpScreen = ({ dispatch, loading, data, hasErrors }) => {
+  useEffect(() => {
+    dispatch(fetchData());
+  }, [dispatch]);
+
   return (
     <SafeAreaView style={styles.container}>
       <Image style={styles.logo} source={images.signup_logo} />
@@ -19,8 +24,12 @@ const SignUpScreen = (props) => {
   );
 };
 
-const mapStateToProps = (state) => state;
-const mapDispatch = (dispatch) => ({});
-const connectComponent = connect(mapStateToProps, mapDispatch);
-
-export default connectComponent(SignUpScreen);
+const mapStateToProps = (state) => {
+  console.log(state);
+  return {
+    loading: state.data.loading,
+    data: state.data.data,
+    hasErrors: state.data.hasErrors,
+  };
+};
+export default connect(mapStateToProps, null)(SignUpScreen);

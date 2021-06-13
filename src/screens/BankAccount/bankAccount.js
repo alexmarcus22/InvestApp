@@ -10,7 +10,7 @@ import {
 } from "react-native";
 import { styles } from "./bankAccountStyle";
 import images from "../../theme/images";
-import ButtonComponent from "../../components/Button/buttonComponent";
+import ButtonComponent from "../../components/Button/button";
 import BankCard from "../../components/BankCard/bankCard";
 import GoBackButton from "../../components/GoBack/goBackButton";
 

@@ -8,12 +8,14 @@ export const styles = StyleSheet.create({
     borderWidth: 0,
     backgroundColor: Colors.darkGreen,
     borderRadius: 20,
-    color: Colors.White,
     paddingTop: 20,
     paddingBottom: 20,
     width: "100%",
     fontSize: 17,
-    fontFamily: Fonts.SFDisplay,
     overflow: "hidden",
+  },
+  textButton: {
+    color: Colors.White,
+    fontFamily: Fonts.SFDisplay,
   },
 });

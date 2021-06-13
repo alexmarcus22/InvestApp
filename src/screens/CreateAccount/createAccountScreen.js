@@ -3,7 +3,7 @@ import { SafeAreaView, Text, View, Image } from "react-native";
 import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
 import { styles } from "./createAccountStyle";
-import SignupForm from "../../components/SignUpForm/signUpFormComponent";
+import SignupForm from "../../components/SignUpForm/signUpForm";
 import GoBackButton from "../../components/GoBack/goBackButton";
 import StateViewer from "../../Redux/stateViewer";
 
@@ -24,7 +24,7 @@ const CreateAccount = () => {
       </View>
       <View style={styles.inputsContainer}>
         <SignupForm />
-        <StateViewer />
+        {/* <StateViewer /> */}
         <Text style={styles.bottomText} onPress={navigate}>
           Already have an account?
         </Text>

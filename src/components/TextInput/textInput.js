@@ -8,7 +8,7 @@ const TextInputComponent = ({
   type,
   placeholder,
   secureText,
-  onChange,
+  onChangeText,
 }) => {
   return (
     <TextInput
@@ -18,7 +18,7 @@ const TextInputComponent = ({
       style={styles.input}
       placeholder={placeholder}
       secureTextEntry={secureText}
-      onChangeText={onChange}
+      onChangeText={onChangeText}
     />
   );
 };
