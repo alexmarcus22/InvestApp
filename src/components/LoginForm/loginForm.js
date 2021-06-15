@@ -1,46 +1,45 @@
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import TextInput from "../TextInput/textInput";
 import { Field, reduxForm } from "redux-form";
 import SubmitButtonComponent from "../SubmitButton/submitButtonComponent";
 
-const SignupForm = (props) => {
+const LoginForm = (props) => {
   const { handleSubmit } = props;
-
-  console.log(props);
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
 
   const onSubmit = (values) => console.log(values);
+
+  const onChange = (value) => {
+    setUsername(value);
+  };
 
   const renderField = ({
     placeholder,
     name,
     type,
-    input: { onChange, ...input },
-    secureTextEntry: secureTextEntry,
+    secureTextEntry,
+    value,
+    input: { ...input },
   }) => (
     <TextInput
+      {...input}
       type={type}
       name={name}
       placeholder={placeholder}
       secureText={secureTextEntry}
-      {...input}
-      onChangeText={onChange}
+      onChangeText={(value) => onChange(value)}
     />
   );
 
   return (
     <View>
       <Field
-        name="name"
+        name="username"
         type="text"
         component={renderField}
-        placeholder="Your name"
-      />
-      <Field
-        name="email"
-        type="email"
-        component={renderField}
-        placeholder="Email"
+        placeholder="Your username"
       />
       <Field
         name="password"
@@ -56,4 +55,4 @@ const SignupForm = (props) => {
   );
 };
 
-export default reduxForm({ form: "test-form" })(SignupForm);
+export default reduxForm({ form: "test-form" })(LoginForm);

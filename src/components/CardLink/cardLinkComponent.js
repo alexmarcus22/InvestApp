@@ -10,11 +10,10 @@ import { styles } from "./cardLinkStyle";
 import images from "../../theme/images";
 import { useNavigation } from "@react-navigation/native";
 
-const CardLink = ({ item, pathToNavigate }) => {
+const CardLink = ({ item }) => {
   const navigation = useNavigation();
-
   const navigate = () => {
-    navigation.navigate(pathToNavigate);
+    navigation.navigate(item.navigateTo);
   };
 
   return (

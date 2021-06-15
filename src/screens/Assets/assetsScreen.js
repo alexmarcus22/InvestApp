@@ -1,5 +1,5 @@
 import React from "react";
-import { assetsData } from "../../theme/mockData";
+import { DATA_TO_FETCH } from "../../theme/mockData";
 import {
   SafeAreaView,
   Image,
@@ -51,7 +51,7 @@ const AssetsScreen = () => {
           <View style={styles.history}>
             <Text style={styles.historyTitle}>History</Text>
             <FlatList
-              data={assetsData}
+              data={DATA_TO_FETCH.assetsData}
               renderItem={({ item }) => {
                 return (
                   <View>

@@ -4,7 +4,6 @@ import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   button: {
-    textAlign: "center",
     backgroundColor: Colors.darkGreen,
     borderRadius: 20,
     alignSelf: "stretch",
@@ -12,6 +11,8 @@ export const styles = StyleSheet.create({
     paddingBottom: 14,
     lineHeight: 20,
     overflow: "hidden",
+    justifyContent: "center",
+    alignItems: "center",
   },
   text: {
     color: Colors.White,

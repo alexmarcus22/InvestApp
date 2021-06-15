@@ -1,5 +1,6 @@
-import React from "react";
-import { profileData } from "../../theme/mockData";
+import React, { useEffect } from "react";
+import { fetchData } from "../../Redux/actions/dataAction";
+import { connect } from "react-redux";
 import {
   SafeAreaView,
   Image,
@@ -13,11 +14,18 @@ import CardLink from "../../components/CardLink/cardLinkComponent";
 import images from "../../theme/images";
 import GoBack from "../../components/GoBack/goBackButton";
 
-const ProfileScreen = () => {
-  return (
-    <SafeAreaView>
-      <ScrollView>
-        <View style={styles.container}>
+const ProfileScreen = ({ dispatch, loading, data, hasErrors }) => {
+  useEffect(() => {
+    dispatch(fetchData);
+  });
+
+  const RenderScreen = () => {
+    if (loading) return <Text>Loading..</Text>;
+    if (hasErrors) return <p>Unable to display.</p>;
+    if (data === undefined) return null;
+    return (
+      <ScrollView style={styles.container}>
+        <SafeAreaView>
           <View style={styles.headerContainer}>
             <GoBack />
             <Text style={styles.headerText}>Profile</Text>
@@ -32,24 +40,29 @@ const ProfileScreen = () => {
           </View>
           <View>
             <FlatList
-              data={profileData}
+              data={data}
               numColumns={1}
               keyExtractor={(item) => item.title}
               renderItem={(item) => {
-                return (
-                  <CardLink
-                    {...item}
-                    pathToNavigate="Bank Account"
-                    key={item.index}
-                  />
-                );
+                return <CardLink {...item} key={item.index} />;
               }}
             />
           </View>
-        </View>
+        </SafeAreaView>
       </ScrollView>
-    </SafeAreaView>
-  );
+    );
+  };
+
+  return <RenderScreen />;
 };
 
-export default ProfileScreen;
+const mapStateToProps = (state) => {
+  return {
+    loading: state.data.loading,
+    data: state.data.data.profileData,
+    hasErrors: state.data.hasErrors,
+  };
+};
+const connectComponent = connect(mapStateToProps);
+
+export default connectComponent(ProfileScreen);

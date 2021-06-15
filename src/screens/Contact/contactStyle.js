@@ -6,7 +6,8 @@ export const styles = StyleSheet.create({
   outerContainer: { backgroundColor: Colors.backgroundColor, height: "100%" },
   innerContainer: {
     paddingHorizontal: 30,
-    paddingVertical: 63,
+    paddingTop: 63,
+    paddingBottom: 0,
     height: "100%",
   },
   headerContainer: {
@@ -14,9 +15,6 @@ export const styles = StyleSheet.create({
     justifyContent: "center",
     marginBottom: 50,
     alignItems: "center",
-  },
-  row1: {
-    flex: 1,
   },
   close: {
     position: "relative",
@@ -26,11 +24,9 @@ export const styles = StyleSheet.create({
   },
   headerTitle: {
     fontFamily: Fonts.SFDisplay,
-    fontweight: "400",
+    fontWeight: "400",
     fontSize: 22,
-    flex: 11,
     textAlign: "center",
-    paddingRight: 20,
   },
   profile: {
     flexDirection: "column",

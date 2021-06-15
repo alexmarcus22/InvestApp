@@ -4,9 +4,10 @@ import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: 60,
+    paddingVertical: 63,
     paddingHorizontal: 30,
     backgroundColor: Colors.backgroundColor,
+    overflow: "scroll"
   },
   headerContainer: {
     paddingBottom: 29,

@@ -4,14 +4,16 @@ import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingVertical: 63,
-    paddingHorizontal: 30,
+    paddingTop: 70,
+    marginHorizontal: 34,
     flexDirection: "column",
   },
   headerContainer: {
+    flex: 1,
     marginBottom: 86,
   },
   inputsContainer: {
+    flex: 3,
     width: "100%",
   },
   input: {

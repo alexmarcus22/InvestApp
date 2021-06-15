@@ -2,20 +2,24 @@ import React, { useEffect } from "react";
 import { SafeAreaView, Text, View } from "react-native";
 import { connect } from "react-redux";
 import { useNavigation } from "@react-navigation/native";
-import { styles } from "./createAccountStyle";
-import SignupForm from "../../components/SignUpForm/signUpForm";
+import { styles } from "./loginScreenStyle";
 import GoBackButton from "../../components/GoBack/goBackButton";
 import { fetchData } from "../../Redux/actions/dataAction";
+import LoginForm from "../../components/LoginForm/loginForm";
 
-const CreateAccount = ({ dispatch, loading, data, hasErrors }) => {
+const LoginScreen = ({ dispatch, loading, data, hasErrors }) => {
   useEffect(() => {
     dispatch(fetchData());
   }, [dispatch]);
 
   const navigation = useNavigation();
 
+  const submit = (values) => {
+    console.log(values);
+  };
+
   const navigate = () => {
-    navigation.navigate("Login");
+    navigation.navigate("Homepage");
   };
 
   const RenderScreen = () => {
@@ -30,7 +34,7 @@ const CreateAccount = ({ dispatch, loading, data, hasErrors }) => {
           <Text style={styles.description}>{data.description}</Text>
         </View>
         <View style={styles.inputsContainer}>
-          <SignupForm />
+          <LoginForm onSubmit={submit} />
           <Text style={styles.bottomText} onPress={navigate}>
             {data.bottomText}
           </Text>
@@ -45,10 +49,10 @@ const CreateAccount = ({ dispatch, loading, data, hasErrors }) => {
 const mapStateToProps = (state) => {
   return {
     loading: state.data.loading,
-    data: state.data.data.createaAccountData,
+    data: state.data.data.loginData,
     hasErrors: state.data.hasErrors,
   };
 };
 const connectComponent = connect(mapStateToProps);
 
-export default connectComponent(CreateAccount);
+export default connectComponent(LoginScreen);

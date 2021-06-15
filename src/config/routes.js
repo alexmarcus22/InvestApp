@@ -7,6 +7,7 @@ import BankAccount from "../screens/BankAccount/bankAccount";
 import Profile from "../screens/Profile/profileScreen";
 import ProductScreen from "../screens/Product/productScreen";
 import TransactionScreen from "../screens/Transaction/transactionScreen";
+import loginScreen from "../screens/Login/loginScreen";
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     order: 9,
     isBottomTab: false,
     visibleBottomTab: true,
+  },
+  {
+    component: loginScreen,
+    name: "Login",
+    order: 10,
   },
   {
     component: HomePage,

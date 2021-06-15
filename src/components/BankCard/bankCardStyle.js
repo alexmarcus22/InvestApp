@@ -24,11 +24,11 @@ export const styles = StyleSheet.create({
     elevation: 7,
   },
   bankImage: {
-    flex: 2,
+    width: 47,
+    height: 47,
   },
   bankDescription: {
     marginLeft: 19,
-    flex: 10,
   },
   bankTitle: {
     color: Colors.darkGray,
@@ -38,7 +38,6 @@ export const styles = StyleSheet.create({
     fontWeight: "600",
   },
   dotsContent: {
-    flex: 1,
     marginLeft: 10,
   },
   dots: {

@@ -1,35 +1,56 @@
 import React, { useEffect } from "react";
+import { fetchData } from "../../Redux/actions/dataAction";
 import { connect } from "react-redux";
-import { SafeAreaView, Image, Text } from "react-native";
+import { SafeAreaView, Image, Text, TouchableOpacity } from "react-native";
 import { styles } from "./signUpStyle";
 import images from "../../theme/images";
 import ButtonComponent from "../../components/Button/button";
-import { fetchData } from "../../Redux/actions/data";
-const SignUpScreen = ({ dispatch, loading, data, hasErrors }) => {
-  useEffect(() => {
-    dispatch(fetchData());
-  }, [dispatch]);
+import { useNavigation } from "@react-navigation/native";
 
-  return (
-    <SafeAreaView style={styles.container}>
-      <Image style={styles.logo} source={images.signup_logo} />
-      <Text style={styles.title}>Stay on top of your finance with us.</Text>
-      <Text style={styles.description}>
-        We are your new financial Advisors to recommed the best investments for
-        you.
-      </Text>
-      <ButtonComponent title="Create Account" pathToNavigate="Create Account" />
-      <Text style={styles.noBackgroundText}>Login</Text>
-    </SafeAreaView>
-  );
+const SignUpScreen = ({ data, hasErrors, loading, onFetchData }) => {
+  useEffect(() => {
+    onFetchData();
+  }, []);
+
+  const navigation = useNavigation();
+
+  const navigateToLogin = () => {
+    navigation.navigate("Login");
+  };
+
+  const RenderScreen = () => {
+    if (loading) return <Text>Loading..</Text>;
+    if (hasErrors) return <Text>Unable to display.</Text>;
+    if (data === undefined) return null;
+    return (
+      <SafeAreaView style={styles.container}>
+        <Image style={styles.logo} source={images.signup_logo} />
+        <Text style={styles.title}>{data.title}</Text>
+        <Text style={styles.description}>{data.description}</Text>
+        <ButtonComponent
+          title="Create Account"
+          pathToNavigate="Create Account"
+        />
+        <TouchableOpacity onPress={navigateToLogin}>
+          <Text style={styles.noBackgroundText}>Login</Text>
+        </TouchableOpacity>
+      </SafeAreaView>
+    );
+  };
+
+  return <RenderScreen />;
 };
 
 const mapStateToProps = (state) => {
-  console.log(state);
   return {
     loading: state.data.loading,
-    data: state.data.data,
+    data: state.data.data.signUpData,
     hasErrors: state.data.hasErrors,
   };
 };
-export default connect(mapStateToProps, null)(SignUpScreen);
+
+const mapDispatchToProps = (dispatch) => ({
+  onFetchData: () => dispatch(fetchData()),
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(SignUpScreen);

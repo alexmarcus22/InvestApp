@@ -15,7 +15,6 @@ export const styles = StyleSheet.create({
     alignItems: "center",
   },
   row1: {
-    flex: 11,
     alignItems: "center",
   },
   row2: {

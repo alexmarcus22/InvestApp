@@ -11,6 +11,7 @@ import { styles } from "./bankCardStyle";
 import images from "../../theme/images";
 
 const BankCard = ({ item }) => {
+  console.log(item.bg);
   return (
     <SafeAreaView style={styles.bankContainer}>
       <TouchableHighlight>

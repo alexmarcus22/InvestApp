@@ -10,7 +10,6 @@ export const styles = StyleSheet.create({
   innerContainer: {
     paddingHorizontal: 30,
     paddingVertical: 63,
-    flex: 1,
   },
   headerContainer: {
     flexDirection: "row",
@@ -26,7 +25,6 @@ export const styles = StyleSheet.create({
     fontFamily: Fonts.SFDisplay,
     fontWeight: "400",
     fontSize: 22,
-    flex: 11,
     alignItems: "center",
     textAlign: "center",
     paddingRight: 6,

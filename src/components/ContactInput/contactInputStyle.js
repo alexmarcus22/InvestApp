@@ -9,16 +9,30 @@ export const styles = StyleSheet.create({
   },
   input: {
     paddingBottom: 10,
-    borderTopWidth: 0,
-    borderBottomWidth: 1,
     lineHeight: 25,
     fontFamily: Fonts.SFDisplay,
     opacity: 1,
     color: Colors.Black,
-    placeholderTextColor: Colors.Black,
     fontWeight: "400",
+    maxWidth: "100%",
+    shadowOffset: { width: 0, height: 0 },
+    shadowColor: Colors.Transparent,
+    shadowOpacity: 0,
+    shadowRadius: 0,
+    elevation: 0,
+  },
+  inputContainer: {
+    borderTopWidth: 0,
+    borderBottomWidth: 1,
+    flexDirection: "row",
   },
   label: {
     color: Colors.Black,
+  },
+  changeText: {
+    color: Colors.darkGreen,
+  },
+  changeTextContainer: {
+    right: 50,
   },
 });

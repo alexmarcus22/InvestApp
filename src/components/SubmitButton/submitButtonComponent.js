@@ -4,7 +4,7 @@ import { styles } from "./submitButtonStyle";
 const SubmitButtonComponent = ({ title, onSubmit }) => {
   return (
     <Pressable style={styles.submitButton} onPress={onSubmit}>
-      <Text>{title}</Text>
+      <Text style={styles.textButton}>{title}</Text>
     </Pressable>
   );
 };
