@@ -1,59 +1,44 @@
-import React from "react";
+import React, { useState } from "react";
 import { View } from "react-native";
 import TextInput from "../TextInput/textInput";
-import { Field, reduxForm } from "redux-form";
 import SubmitButtonComponent from "../SubmitButton/submitButtonComponent";
 
 const SignupForm = (props) => {
   const { handleSubmit } = props;
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
   console.log(props);
 
   const onSubmit = (values) => console.log(values);
-
-  const renderField = ({
-    placeholder,
-    name,
-    type,
-    input: { onChange, ...input },
-    secureTextEntry: secureTextEntry,
-  }) => (
-    <TextInput
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      secureText={secureTextEntry}
-      {...input}
-      onChangeText={onChange}
-    />
-  );
-
   return (
     <View>
-      <Field
+      <TextInput
         name="name"
         type="text"
-        component={renderField}
         placeholder="Your name"
+        onChangeText={setUsername}
+        value={username}
       />
-      <Field
+      <TextInput
         name="email"
         type="email"
-        component={renderField}
         placeholder="Email"
+        onChangeText={setEmail}
+        value={username}
       />
-      <Field
+      <TextInput
         name="password"
         type="password"
-        component={renderField}
         placeholder="Password"
-        props={{
-          secureTextEntry: true,
-        }}
+        onChangeText={setPassword}
+        value={username}
+        secureText
       />
       <SubmitButtonComponent title="Submit" onSubmit={handleSubmit(onSubmit)} />
     </View>
   );
 };
 
-export default reduxForm({ form: "test-form" })(SignupForm);
+export default SignupForm;

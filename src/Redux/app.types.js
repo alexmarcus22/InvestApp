@@ -1,0 +1,4 @@
+export const types = {
+  GET_PAGES_LOADING: "GET_PAGES_LOADING",
+  GET_PAGES_SUCCESS: "GET_PAGES_SUCCESS",
+};

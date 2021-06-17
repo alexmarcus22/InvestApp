@@ -4,17 +4,13 @@ import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    paddingTop: 70,
-    marginHorizontal: 34,
+    paddingVertical: 63,
+    paddingHorizontal: 30,
     flexDirection: "column",
   },
   headerContainer: {
     flex: 1,
     marginBottom: 86,
-  },
-  inputsContainer: {
-    flex: 3,
-    width: "100%",
   },
   input: {
     borderWidth: 1,

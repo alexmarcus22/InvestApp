@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { fetchData } from "../../Redux/actions/dataAction";
 import { connect } from "react-redux";
 import {
   SafeAreaView,

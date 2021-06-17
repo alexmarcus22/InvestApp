@@ -6,7 +6,6 @@ export const styles = StyleSheet.create({
   container: {
     paddingVertical: 63,
     paddingHorizontal: 30,
-    flexDirection: "column",
   },
   headerContainer: {
     marginBottom: 86,

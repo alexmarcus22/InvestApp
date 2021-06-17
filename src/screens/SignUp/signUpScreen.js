@@ -1,40 +1,49 @@
 import React, { useEffect } from "react";
-import { fetchData } from "../../Redux/actions/dataAction";
 import { connect } from "react-redux";
-import { SafeAreaView, Image, Text, TouchableOpacity } from "react-native";
+import {
+  SafeAreaView,
+  Image,
+  Text,
+  TouchableOpacity,
+  ScrollView,
+  View,
+} from "react-native";
 import { styles } from "./signUpStyle";
 import images from "../../theme/images";
 import ButtonComponent from "../../components/Button/button";
 import { useNavigation } from "@react-navigation/native";
+import getList from "../../Redux/app.actions";
 
-const SignUpScreen = ({ data, hasErrors, loading, onFetchData }) => {
-  useEffect(() => {
-    onFetchData();
-  }, []);
-
+const SignUpScreen = (props) => {
   const navigation = useNavigation();
+  const page = "signUpScreen";
 
-  const navigateToLogin = () => {
-    navigation.navigate("Login");
-  };
+  const { error, loading, data, getList } = props;
+
+  useEffect(() => {
+    getList();
+  }, [getList]);
 
   const RenderScreen = () => {
     if (loading) return <Text>Loading..</Text>;
-    if (hasErrors) return <Text>Unable to display.</Text>;
+    if (error) return <Text>Unable to display.</Text>;
     if (data === undefined) return null;
+    console.log("States after request: ", data);
     return (
-      <SafeAreaView style={styles.container}>
-        <Image style={styles.logo} source={images.signup_logo} />
-        <Text style={styles.title}>{data.title}</Text>
-        <Text style={styles.description}>{data.description}</Text>
-        <ButtonComponent
-          title="Create Account"
-          pathToNavigate="Create Account"
-        />
-        <TouchableOpacity onPress={navigateToLogin}>
-          <Text style={styles.noBackgroundText}>Login</Text>
-        </TouchableOpacity>
-      </SafeAreaView>
+      <ScrollView style={styles.container}>
+        <SafeAreaView>
+          <Image style={styles.logo} source={images.signup_logo} />
+          <Text style={styles.title}>asdasdas</Text>
+          <Text style={styles.description}>asdsaasd</Text>
+          <ButtonComponent
+            title="Create Account"
+            pathToNavigate="Create Account"
+          />
+          <TouchableOpacity>
+            <Text style={styles.noBackgroundText}>Login</Text>
+          </TouchableOpacity>
+        </SafeAreaView>
+      </ScrollView>
     );
   };
 
@@ -42,15 +51,16 @@ const SignUpScreen = ({ data, hasErrors, loading, onFetchData }) => {
 };
 
 const mapStateToProps = (state) => {
+  console.log("State from: SignUpScreen ");
   return {
-    loading: state.data.loading,
-    data: state.data.data.signUpData,
-    hasErrors: state.data.hasErrors,
+    data: state.Reducer.data.data,
+    loading: state.Reducer.loading,
+    error: state.Reducer.error,
   };
 };
 
-const mapDispatchToProps = (dispatch) => ({
-  onFetchData: () => dispatch(fetchData()),
-});
+const mapDispatchToProps = {
+  getList,
+};
 
 export default connect(mapStateToProps, mapDispatchToProps)(SignUpScreen);

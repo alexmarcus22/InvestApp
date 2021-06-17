@@ -6,45 +6,26 @@ import SubmitButtonComponent from "../SubmitButton/submitButtonComponent";
 
 const LoginForm = (props) => {
   const { handleSubmit } = props;
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-
   const onSubmit = (values) => console.log(values);
 
-  const onChange = (value) => {
-    setUsername(value);
+  const renderInput = ({ input: { onChange, ...restInput }, secureTextEntry, placeholder }) => {
+    return (
+      <TextInput onChangeText={onChange} {...restInput} secureText={secureTextEntry} placeholder={placeholder} />
+    );
   };
-
-  const renderField = ({
-    placeholder,
-    name,
-    type,
-    secureTextEntry,
-    value,
-    input: { ...input },
-  }) => (
-    <TextInput
-      {...input}
-      type={type}
-      name={name}
-      placeholder={placeholder}
-      secureText={secureTextEntry}
-      onChangeText={(value) => onChange(value)}
-    />
-  );
 
   return (
     <View>
       <Field
         name="username"
         type="text"
-        component={renderField}
+        component={renderInput}
         placeholder="Your username"
       />
       <Field
         name="password"
         type="password"
-        component={renderField}
+        component={renderInput}
         placeholder="Password"
         props={{
           secureTextEntry: true,
@@ -55,4 +36,4 @@ const LoginForm = (props) => {
   );
 };
 
-export default reduxForm({ form: "test-form" })(LoginForm);
+export default reduxForm({ form: "test-form2" })(LoginForm);

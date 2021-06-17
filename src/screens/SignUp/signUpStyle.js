@@ -4,14 +4,18 @@ import Fonts from "../../theme/fonts";
 
 export const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    justifyContent: "center",
-    alignItems: "center",
-    marginHorizontal: 34,
+    paddingVertical: 63,
+    paddingHorizontal: 30,
   },
-  logo: {
+  imageContainer: {
     width: 300,
     height: 273,
+    aspectRatio: 1 * 1.4,
+  },
+  logo: {
+    resizeMode: "cover",
+    width: "100%",
+    height: "100%",
   },
   title: {
     fontSize: 34,
@@ -30,7 +34,7 @@ export const styles = StyleSheet.create({
     textAlign: "center",
     fontFamily: Fonts.SFDisplay,
     fontWeight: "300",
-    marginBottom: 100,
+    marginBottom: 73,
   },
   noBackgroundText: {
     textAlign: "center",

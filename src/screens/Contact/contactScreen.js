@@ -1,6 +1,5 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
-import { fetchData } from "../../Redux/actions/dataAction";
 import {
   Text,
   View,
